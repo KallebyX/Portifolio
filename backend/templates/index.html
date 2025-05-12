@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Início | Kalleby Evangelho{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section d-flex align-items-center text-center text-white" id="home" style="background: linear-gradient(to right, #007bff, #00c6ff); min-height: 100vh;">
+  <div class="container py-5">
+    <h1 data-aos="fade-up" class="display-4 fw-bold">Tecnologia com Propósito.<br>Inovação com Empatia.</h1>
+    <p data-aos="fade-up" data-aos-delay="200" class="lead mt-3">Portfólio oficial de Kalleby Evangelho Mota</p>
+    <a href="/formulario.html" class="btn btn-lg btn-light mt-4 shadow" data-aos="zoom-in" data-aos-delay="400">
+      Descreva sua ideia de software
+    </a>
+  </div>
+</section>
+
+<!-- About Preview -->
+<section class="about-preview bg-light py-5">
+  <div class="container text-center" data-aos="fade-up">
+    <h2 class="fw-bold">Quem é Kalleby?</h2>
+    <p class="mt-3 fs-5 text-muted">Estudante de Engenharia Biomédica, fundador da Biomove, desenvolvedor de tecnologias assistivas e apaixonado por IA aplicada à saúde e educação. Um jovem movido por empatia, inovação e coragem para transformar o mundo.</p>
+    <a href="/sobre.html" class="btn btn-outline-primary btn-lg mt-3">Saiba mais</a>
+  </div>
+</section>
+
+<!-- Destaques -->
+<section class="destaques py-5 bg-white">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-5" data-aos="fade-up">Áreas de Atuação</h2>
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="card border-0 shadow h-100 text-center p-4">
+          <div class="card-body">
+            <h5 class="fw-bold text-primary">Tecnologia Assistiva</h5>
+            <p class="text-muted">Desenvolvimento de próteses, cadeiras de rodas interativas e dispositivos inclusivos.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card border-0 shadow h-100 text-center p-4">
+          <div class="card-body">
+            <h5 class="fw-bold text-success">Educação com IA</h5>
+            <p class="text-muted">Plataformas educacionais com inteligência artificial e gamificação para ensino inclusivo.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card border-0 shadow h-100 text-center p-4">
+          <div class="card-body">
+            <h5 class="fw-bold text-danger">Engenharia e Inovação</h5>
+            <p class="text-muted">Soluções criativas usando eletrônica, programação embarcada, machine learning e muito mais.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="text-center py-4 bg-white border-top">
+  <small class="text-muted">CNPJ Kalleby Evangelho Mota: 49.549.704/0001-07</small>
+</section>
+{% endblock %}

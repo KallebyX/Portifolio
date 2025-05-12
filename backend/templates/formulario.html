@@ -1,0 +1,247 @@
+{% extends "base.html" %}
+
+{% block title %}Formulário de Projeto | Kalleby Evangelho{% endblock %}
+
+{% block content %}
+<section class="form-section container mt-5 pt-5">
+  {% if request.args.get('sucesso') %}
+  <div class="alert alert-success text-center mb-4" role="alert">
+    ✅ Suas respostas foram enviadas com sucesso e encaminhadas para o meu e-mail!
+  </div>
+  {% endif %}
+  <h2 class="text-center mb-4 fw-bold text-primary" data-aos="fade-up">Descreva sua ideia de software</h2>
+  <div class="d-flex justify-content-center mb-4">
+    <button type="button" class="btn btn-outline-info btn-lg rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#modalAjuda">
+      Como preencher?
+    </button>
+  </div>
+  <form id="ideiaForm" method="POST" action="/enviar-formulario" enctype="multipart/form-data">
+
+    <!-- Etapa 1 -->
+    <div class="form-step card p-4 bg-light shadow mb-4" id="step-1">
+      <div class="mb-3">
+        <label for="problema" class="form-label fw-semibold">Qual problema você quer resolver?</label>
+        <textarea class="form-control" id="problema" name="problema" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="solucao" class="form-label fw-semibold">Como você imagina a solução?</label>
+        <textarea class="form-control" id="solucao" name="solucao" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="referencia" class="form-label fw-semibold">Existe algum exemplo, modelo ou concorrente similar?</label>
+        <input type="text" class="form-control" id="referencia" name="referencia">
+      </div>
+      <div class="text-end">
+        <button type="button" class="btn btn-primary btn-lg" onclick="nextStep()">Próximo</button>
+      </div>
+    </div>
+
+    <!-- Etapa 2 -->
+    <div class="form-step card p-4 bg-light shadow mb-4 d-none" id="step-2">
+      <div class="mb-3">
+        <label for="tipo_projeto" class="form-label fw-semibold">Tipo de projeto (pode marcar mais de um)</label>
+        <select class="form-select" id="tipo_projeto" name="tipo_projeto" multiple required>
+          <option>Site institucional</option>
+          <option>Aplicativo mobile</option>
+          <option>Dashboard / Painel de controle</option>
+          <option>Loja virtual / e-commerce</option>
+          <option>IA personalizada</option>
+          <option>API (backend)</option>
+          <option>Sistema interno para empresa</option>
+          <option>Refatoração ou melhoria de sistema já existente</option>
+          <option>Outro</option>
+        </select>
+        <small class="text-muted">Segure Ctrl (ou Cmd no Mac) para selecionar múltiplos.</small>
+      </div>
+      <div class="mb-3">
+        <label for="funcionalidades" class="form-label fw-semibold">Quais funcionalidades são importantes?</label>
+        <textarea class="form-control" id="funcionalidades" name="funcionalidades" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="publico" class="form-label fw-semibold">Para quem será o sistema?</label>
+        <input type="text" class="form-control" id="publico" name="publico" required>
+      </div>
+      <div class="d-flex justify-content-between">
+        <button type="button" class="btn btn-secondary btn-lg" onclick="prevStep()">Voltar</button>
+        <button type="button" class="btn btn-primary btn-lg" onclick="nextStep()">Próximo</button>
+      </div>
+    </div>
+
+    <!-- Etapa 3 -->
+    <div class="form-step card p-4 bg-light shadow mb-4 d-none" id="step-3">
+      <div class="mb-3">
+        <label for="plataforma" class="form-label fw-semibold">Onde o sistema será utilizado?</label>
+        <select class="form-select" id="plataforma" name="plataforma" required>
+          <option>Navegador (web)</option>
+          <option>Aplicativo Android</option>
+          <option>Aplicativo iOS</option>
+          <option>Ambos (Android + iOS)</option>
+          <option>Desktop (Windows/Linux)</option>
+          <option>Não sei ainda</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="prazo" class="form-label fw-semibold">Existe um prazo ou data importante?</label>
+        <input type="text" class="form-control" id="prazo" name="prazo">
+      </div>
+      <div class="mb-3">
+        <label for="orcamento" class="form-label fw-semibold">Qual a faixa de orçamento estimado? (opcional)</label>
+        <input type="text" class="form-control" id="orcamento" name="orcamento">
+      </div>
+      <div class="mb-3">
+        <label for="observacoes" class="form-label fw-semibold">Alguma observação extra?</label>
+        <textarea class="form-control" id="observacoes" name="observacoes"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="nome" class="form-label fw-semibold">Seu nome</label>
+        <input type="text" class="form-control" id="nome" name="nome" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label fw-semibold">E-mail</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+      <div class="mb-3">
+        <label for="whatsapp" class="form-label fw-semibold">WhatsApp</label>
+        <input type="text" class="form-control" id="whatsapp" name="whatsapp">
+      </div>
+      <div class="d-flex justify-content-between">
+        <button type="button" class="btn btn-secondary btn-lg" onclick="prevStep()">Voltar</button>
+        <button type="button" class="btn btn-primary btn-lg" onclick="nextStep()">Próximo</button>
+      </div>
+    </div>
+
+    <!-- Etapa 4 -->
+    <div class="form-step card p-4 bg-light shadow mb-4 d-none" id="step-4">
+      <div class="mb-3">
+        <label for="identidade_visual" class="form-label fw-semibold">Você já tem alguma identidade visual (logo, cores)?</label>
+        <select class="form-select" id="identidade_visual" name="identidade_visual" required>
+          <option value="">Selecione</option>
+          <option>Sim, já tenho</option>
+          <option>Não tenho, preciso criar</option>
+          <option>Não sei ainda</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="login_usuarios" class="form-label fw-semibold">Deseja que o sistema tenha login de usuários?</label>
+        <select class="form-select" id="login_usuarios" name="login_usuarios" required>
+          <option value="">Selecione</option>
+          <option>Sim</option>
+          <option>Não</option>
+          <option>Não sei ainda</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="complexidade" class="form-label fw-semibold">Qual o nível de complexidade esperada?</label>
+        <select class="form-select" id="complexidade" name="complexidade" required>
+          <option value="">Selecione</option>
+          <option>Baixa</option>
+          <option>Média</option>
+          <option>Alta</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="origem" class="form-label fw-semibold">Como você conheceu o projeto?</label>
+        <input type="text" class="form-control" id="origem" name="origem" placeholder="Ex: Google, Instagram, indicação...">
+      </div>
+      <div class="mb-3">
+        <label for="arquivo_exemplo" class="form-label fw-semibold">Deseja enviar algum arquivo de exemplo? (opcional)</label>
+        <input class="form-control" type="file" id="arquivo_exemplo" name="arquivo_exemplo" accept=".pdf,.png,.jpg,.jpeg,.doc,.docx">
+        <small class="form-text text-muted">Pode ser uma imagem, PDF, documento ou esboço explicativo.</small>
+      </div>
+      <div class="d-flex justify-content-between">
+        <button type="button" class="btn btn-secondary btn-lg" onclick="prevStep()">Voltar</button>
+        <button type="submit" class="btn btn-success btn-lg">Enviar</button>
+      </div>
+    </div>
+  </form>
+</section>
+
+<script>
+  let currentStep = 1;
+  function nextStep() {
+    document.getElementById(`step-${currentStep}`).classList.add('d-none');
+    currentStep++;
+    const next = document.getElementById(`step-${currentStep}`);
+    if (next) next.classList.remove('d-none');
+  }
+  function prevStep() {
+    document.getElementById(`step-${currentStep}`).classList.add('d-none');
+    currentStep--;
+    const prev = document.getElementById(`step-${currentStep}`);
+    if (prev) prev.classList.remove('d-none');
+  }
+</script>
+
+<!-- Modal de Sucesso -->
+<div class="modal fade" id="modalSucesso" tabindex="-1" aria-labelledby="modalSucessoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-success shadow">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title" id="modalSucessoLabel">Projeto enviado com sucesso!</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <i class="fas fa-check-circle fa-3x text-success mb-3"></i>
+        <p class="mb-0">Sua ideia foi recebida e será analisada com atenção. Em breve entraremos em contato!</p>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <a href="/" class="btn btn-outline-success btn-lg rounded-pill px-4">
+          Voltar ao início
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de Ajuda -->
+<div class="modal fade" id="modalAjuda" tabindex="-1" aria-labelledby="modalAjudaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg">
+    <div class="modal-content shadow">
+      <div class="modal-header bg-info text-white">
+        <h5 class="modal-title" id="modalAjudaLabel">Guia de preenchimento do formulário</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        <h6 class="fw-bold text-primary">Etapa 1: Problema e Solução</h6>
+        <ul>
+          <li><strong>Problema:</strong> Descreva o que você quer resolver. Ex: "Preciso organizar os pacientes da clínica".</li>
+          <li><strong>Solução:</strong> Como imagina que isso seria resolvido com software? Ex: "Um sistema com agenda e alertas".</li>
+          <li><strong>Referência:</strong> Pode citar sites, apps ou ideias parecidas.</li>
+        </ul>
+
+        <h6 class="fw-bold text-primary mt-4">Etapa 2: Tipo de Projeto e Funcionalidades</h6>
+        <ul>
+          <li><strong>Tipo de projeto:</strong> Marque o que mais combina com sua ideia. Pode ser mais de um.</li>
+          <li><strong>Funcionalidades:</strong> Liste funções importantes. Ex: login, relatórios, envio de e-mail etc.</li>
+          <li><strong>Público:</strong> Quem vai usar? Profissionais, alunos, clientes?</li>
+        </ul>
+
+        <h6 class="fw-bold text-primary mt-4">Etapa 3: Plataforma e Dados Gerais</h6>
+        <ul>
+          <li><strong>Plataforma:</strong> Onde será usado: web, app Android/iOS, desktop?</li>
+          <li><strong>Prazo:</strong> Se tem uma data limite, coloque aqui.</li>
+          <li><strong>Orçamento:</strong> Pode ser um valor estimado. Não é obrigatório.</li>
+        </ul>
+
+        <h6 class="fw-bold text-primary mt-4">Etapa 4: Extras e Contato</h6>
+        <ul>
+          <li><strong>Identidade visual:</strong> Já tem logo ou paleta de cores?</li>
+          <li><strong>Login de usuários:</strong> O sistema terá contas individuais?</li>
+          <li><strong>Complexidade:</strong> Quão avançado é o sistema?</li>
+          <li><strong>Origem:</strong> Como conheceu este formulário?</li>
+          <li><strong>Arquivo:</strong> Pode anexar imagem, PDF ou desenho da ideia.</li>
+        </ul>
+      </div>
+      <div class="modal-footer flex-column align-items-center">
+        <small class="text-muted mb-2">Esse formulário foi feito para facilitar a descrição da sua ideia, mesmo que você não seja da área de tecnologia.</small>
+        <button type="button" class="btn btn-info btn-lg rounded-pill px-4" data-bs-dismiss="modal">
+          Fechar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="text-center py-4 bg-white border-top">
+  <small class="text-muted">CNPJ Kalleby Evangelho Mota: 49.549.704/0001-07</small>
+</section>
+{% endblock %}

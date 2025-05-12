@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="container py-5 mt-5 bg-light rounded-4 shadow-sm">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="section-title fw-bold">Painel Administrativo</h2>
+    <a href="/logout" class="btn btn-outline-danger">Sair</a>
+  </div>
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="alert alert-success" role="alert">
+        {{ messages[0] }}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  <!-- Formulário de cadastro de projeto -->
+  <div class="card p-4 border-0 shadow">
+    <h5 class="mb-4">Adicionar novo projeto</h5>
+    <form action="/admin/adicionar" method="POST">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label for="nome" class="form-label">Nome do Projeto</label>
+          <input type="text" class="form-control" id="nome" name="nome" required>
+        </div>
+        <div class="col-md-6">
+          <label for="categoria" class="form-label">Categoria</label>
+          <input type="text" class="form-control" id="categoria" name="categoria">
+        </div>
+        <div class="col-md-6">
+          <label for="stack" class="form-label">Tecnologias Usadas (stack)</label>
+          <input type="text" class="form-control" id="stack" name="stack">
+        </div>
+        <div class="col-md-6">
+          <label for="link" class="form-label">Link do Projeto</label>
+          <input type="url" class="form-control" id="link" name="link">
+        </div>
+        <div class="col-md-6">
+          <label for="site" class="form-label">Link do Site (se aplicável)</label>
+          <input type="url" class="form-control" id="site" name="site">
+        </div>
+        <div class="col-md-2">
+          <label for="ordem" class="form-label">Posição</label>
+          <input type="number" class="form-control" id="ordem" name="ordem" value="0" min="0">
+        </div>
+        <div class="col-md-12">
+          <label for="imagem" class="form-label">Imagem (URL)</label>
+          <input type="url" class="form-control" id="imagem" name="imagem">
+        </div>
+        <div class="col-md-12">
+          <label for="descricao" class="form-label">Descrição</label>
+          <textarea class="form-control" id="descricao" name="descricao" rows="4"></textarea>
+        </div>
+      </div>
+      <div class="text-end mt-3">
+        <button type="submit" class="btn btn-primary">Salvar Projeto</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Tabela de projetos -->
+  <hr class="my-5">
+  <h4 class="mb-3">Projetos cadastrados</h4>
+  <div class="mb-3">
+    <button id="save-order-btn" class="btn btn-primary">Salvar Ordem</button>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>Nome</th>
+          <th>Categoria</th>
+          <th>Stack</th>
+          <th>Site</th>
+          <th>Link</th>
+          <th>Ordem</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody id="sortable-list">
+        {% for projeto in projetos %}
+        <tr data-id="{{ projeto.id }}">
+          <td>{{ projeto.nome }}</td>
+          <td>{{ projeto.categoria }}</td>
+          <td>{{ projeto.stack }}</td>
+          <td>
+            {% if projeto.site %}
+              <a href="{{ projeto.site }}" target="_blank">Abrir</a>
+            {% else %}
+              —
+            {% endif %}
+          </td>
+          <td><a href="{{ projeto.link }}" target="_blank">Abrir</a></td>
+          <td>{{ projeto.ordem }}</td>
+          <td>
+            <a href="{{ url_for('admin.move_projeto', id=projeto.id, direction='up') }}"
+               class="btn btn-sm btn-secondary" aria-label="Mover para cima projeto {{ projeto.nome }}">↑</a>
+            <a href="{{ url_for('admin.move_projeto', id=projeto.id, direction='down') }}"
+               class="btn btn-sm btn-secondary" aria-label="Mover para baixo projeto {{ projeto.nome }}">↓</a>
+            <a href="{{ url_for('admin.editar_projeto', id=projeto.id) }}" class="btn btn-sm btn-warning" aria-label="Editar projeto {{ projeto.nome }}">Editar</a>
+            <a href="{{ url_for('admin.excluir_projeto', id=projeto.id) }}" class="btn btn-sm btn-danger" aria-label="Excluir projeto {{ projeto.nome }}" onclick="return confirm('Tem certeza?')">Excluir</a>
+          </td>
+        </tr>
+        {% else %}
+        <tr>
+          <td colspan="7" class="text-center text-muted">Nenhum projeto cadastrado ainda.</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Sortable.js para drag & drop -->
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const list = document.getElementById('sortable-list');
+    const sortable = Sortable.create(list, { animation: 150 });
+
+    document.getElementById('save-order-btn').addEventListener('click', () => {
+      const order = Array.from(list.children).map(tr => tr.dataset.id);
+      fetch('{{ url_for("admin.reorder_projetos") }}', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ order })
+      })
+      .then(res => res.json())
+      .then(data => alert('Ordem salva com sucesso!'))
+      .catch(err => alert('Erro ao salvar ordem'));
+    });
+  });
+</script>
+{% endblock %}

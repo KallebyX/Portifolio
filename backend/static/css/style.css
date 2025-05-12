@@ -1,0 +1,219 @@
+/* css/style.css */
+
+:root {
+    --bg-light: #f8f9fa;
+    --bg-dark: #121212;
+    --text-light: #212529;
+    --text-dark: #f1f1f1;
+    --primary: #007bff;
+  }
+  
+  body {
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  body.dark-mode {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+  }
+  
+  h1, h2, h3, h4, h5 {
+    font-weight: 600;
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: var(--primary);
+  }
+  
+  .btn-primary, .btn-success, .btn-outline-primary {
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary:hover, .btn-success:hover, .btn-outline-primary:hover {
+    transform: scale(1.05);
+  }
+  
+  .navbar-brand {
+    font-weight: 700;
+    color: var(--primary) !important;
+  }
+  
+  .nav-link.active {
+    font-weight: 700;
+    color: var(--primary) !important;
+  }
+  
+  .card {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    background-color: #fff;
+    color: #000;
+  }
+  
+  body.dark-mode .card {
+    background-color: #1e1e1e;
+    color: #fff;
+  }
+  
+  .card:hover {
+    transform: scale(1.03);
+  }
+  
+  .project-img {
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+  
+  footer {
+    font-size: 0.9rem;
+    background-color: #343a40;
+    color: #fff;
+    transition: background-color 0.3s;
+  }
+  
+  footer a {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+  
+  footer a:hover {
+    color: #f8d210;
+    text-decoration: none;
+  }
+  
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 1.8rem;
+    }
+    .btn {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .project-img {
+      height: 160px;
+    }
+  }
+  
+  /* Toggle Button */
+  .toggle-theme {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    background-color: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+  }
+
+body.dark-mode {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode .section-title {
+  color: var(--primary);
+}
+
+body.dark-mode a {
+  color: #61dafb;
+}
+
+body.dark-mode a:hover {
+  color: #90e0ff;
+  text-decoration: underline;
+}
+
+body.dark-mode .btn,
+body.dark-mode .btn-primary,
+body.dark-mode .btn-outline-primary {
+  background-color: #1e1e1e;
+  color: #fff;
+  border-color: var(--primary);
+}
+
+body.dark-mode .btn:hover,
+body.dark-mode .btn-primary:hover,
+body.dark-mode .btn-outline-primary:hover {
+  background-color: var(--primary);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+body.dark-mode footer {
+  background-color: #1a1a1a;
+  color: #ccc;
+}
+
+body.dark-mode .card {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+}
+
+/* Melhorias adicionais para modo escuro */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: #2a2a2a;
+  color: #f1f1f1;
+  border: 1px solid #444;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: #aaa;
+}
+
+body.dark-mode label {
+  color: #e0e0e0;
+}
+
+body.dark-mode .form-control:focus {
+  background-color: #2a2a2a;
+  color: #fff;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+}
+
+body.dark-mode .modal-content {
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+body.dark-mode .modal-header,
+body.dark-mode .modal-footer {
+  border-color: #333;
+}
+
+body.dark-mode .list-group-item {
+  background-color: #2a2a2a;
+  color: #f1f1f1;
+  border-color: #444;
+}

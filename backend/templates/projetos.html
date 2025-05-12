@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Projetos | Kalleby Evangelho{% endblock %}
+
+{% block content %}
+<!-- Filtros -->
+<section class="container mt-5 pt-5 text-center">
+  <h2 class="mb-4 fw-bold text-primary" data-aos="fade-up">Meus Projetos</h2>
+  <p class="text-muted mb-4">Conheça alguns dos sistemas, protótipos e plataformas que desenvolvi com foco em saúde, educação e IA.</p>
+  <div class="btn-group shadow-sm" role="group" aria-label="Filtros de categoria">
+    <button class="btn btn-outline-primary filter-btn" onclick="filterProjects('todos')">Todos</button>
+    <button class="btn btn-outline-primary filter-btn" onclick="filterProjects('saude')">Saúde</button>
+    <button class="btn btn-outline-primary filter-btn" onclick="filterProjects('educacao')">Educação</button>
+    <button class="btn btn-outline-primary filter-btn" onclick="filterProjects('web')">Web</button>
+    <button class="btn btn-outline-primary filter-btn" onclick="filterProjects('ia')">IA</button>
+  </div>
+</section>
+
+<!-- Cards de Projetos -->
+<section class="container mt-5 mb-5">
+  <div class="row g-4" id="projects-container">
+    {% for projeto in projetos %}
+      <div class="col-md-4 project {{ projeto.categoria | lower }} {{ projeto.stack | lower }}" data-aos="zoom-in" data-aos-delay="{{ loop.index0 * 100 }}">
+        <div class="card project-card h-100 shadow-sm border-0">
+          <img src="{{ projeto.imagem }}" class="card-img-top project-img" alt="Imagem do projeto {{ projeto.nome }}">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title text-primary">{{ projeto.nome }}</h5>
+            <p class="card-text">{{ projeto.descricao }}</p>
+            <div class="mt-auto d-flex gap-2">
+              {% if projeto.link %}
+                <a href="{{ projeto.link }}" target="_blank" class="btn btn-outline-primary btn-sm">GitHub</a>
+              {% endif %}
+              {% if projeto.site %}
+                <a href="{{ projeto.site }}" target="_blank" class="btn btn-outline-success btn-sm">Ver Site</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
