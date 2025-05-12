@@ -1,115 +1,58 @@
-# Portfólio de Kalleby Evangelho Mota
+# 🌟 Portfólio Pessoal - Kalleby Evangelho Mota
 
-Bem-vindo ao repositório oficial do meu portfólio pessoal! Este projeto apresenta minha trajetória, valores, projetos desenvolvidos e oferece um formulário guiado para que clientes possam descrever suas ideias de software de forma clara e acessível.
-
----
-
-## 🪀 Objetivo
-
-Criar um site responsivo, elegante e funcional que atue como:
-- **Portfólio público**
-- **Cartão de visitas vivo**
-- **Canal de contato inteligente com coleta de briefing**
+> Um projeto pessoal para apresentar minhas habilidades em desenvolvimento web, programação Python, inovação tecnológica e empreendedorismo social.
 
 ---
 
-## 🎓 Sobre mim
+## 🧠 Visão Geral
 
-Sou estudante de Engenharia Biomédica e entusiasta de Tecnologia da Informação com experiência em desenvolvimento web Fullstack, tecnologias assistivas, IA aplicada à saúde e educação. Fundador da startup **Biomove**.
+Este portfólio é uma plataforma digital criada para reunir minhas principais informações, projetos de destaque e abrir canais de contato com clientes, parceiros e investidores.  
 
-> **CNPJ**: 49.549.704/0001-07
+O projeto busca refletir a combinação de tecnologia, design e impacto social, valores que guiam minha trajetória profissional.
 
 ---
 
-## 📁 Estrutura do Projeto
+## 🚀 Tecnologias Utilizadas
+
+### Front-end
+- **HTML5** - Estruturação semântica
+- **CSS3** - Estilização responsiva
+- **JavaScript Vanilla** - Funcionalidades básicas dinâmicas
+
+### Back-end
+- **Python 3.12**
+- **Flask** *(estrutura para renderizar páginas dinâmicas, se aplicável)*
+- **Gunicorn** *(servidor WSGI utilizado para produção no Render)*
+
+### Infraestrutura e Deploy
+- **Render.com** - Plataforma de deploy contínuo
+- **GitHub** - Controle de versão e hospedagem de código-fonte
+
+---
+
+## ✨ Funcionalidades do Site
+
+- Página inicial apresentando resumo pessoal
+- Sessão de Projetos com descrição de tecnologias utilizadas
+- Seção Sobre Mim contando trajetória e interesses profissionais
+- Área de Contato com links para redes sociais e e-mail
+- Layout Responsivo (adaptado para desktop, tablet e celular)
+
+
+## 📂 Estrutura do Projeto
 
 ```bash
-meu-portfolio-kalleby/
-├── index.html
-├── sobre.html
-├── projetos.html
-├── formulario.html
-├── contato.html
-├── css/
-│   └── style.css
-├── js/
-│   └── main.js
-├── img/
-│   └── (imagens dos projetos e perfil)
-├── pdf/
-│   └── curriculo-kalleby.pdf
-├── backend/
-│   ├── app.py
-│   └── .env
-├── .gitignore
-├── README.md
-```
-
----
-
-## 🌐 Tecnologias Utilizadas
-
-- HTML5, CSS3 e JavaScript
-- Bootstrap 5
-- Font Awesome & AOS.js
-- Flask + Flask-Mail (envio de emails)
-- Python-dotenv (.env seguro)
-
----
-
-## 🚫 Proteção de Dados
-
-Este projeto utiliza variáveis de ambiente sensíveis via `.env`. Não suba esse arquivo para repositórios públicos.
-
-**Exemplo do `.env`:**
-```env
-MAIL_USERNAME=seuemail@gmail.com
-MAIL_PASSWORD=senha-do-app
-MAIL_SERVER=smtp.gmail.com
-MAIL_PORT=587
-MAIL_USE_TLS=true
-```
-
----
-
-## 🔧 Como rodar localmente
-
-1. Clone este repositório:
-```bash
-git clone https://github.com/KallebyX/meu-portfolio-kalleby.git
-```
-
-2. Crie e ative um ambiente virtual (na pasta `backend/`):
-```bash
-cd backend
-python -m venv venv
-source venv/bin/activate  # Linux/macOS
-.\venv\Scripts\activate   # Windows
-```
-
-3. Instale as dependências:
-```bash
-pip install -r requirements.txt
-```
-
-> Se o `requirements.txt` ainda não existir, crie com:
-> ```bash
-> pip freeze > requirements.txt
-> ```
-
-4. Execute o servidor:
-```bash
-python app.py
-```
-
-5. Abra `index.html` no navegador e acesse normalmente. O formulário irá se comunicar com `localhost:5000`.
-
----
-
-## 🙏 Agradecimentos
-
-Este projeto foi concebido com foco em acessibilidade, impacto social e profissionalismo. Agradeço a todos que acompanham meu trabalho e incentivam a inovação com empatia.
-
----
-
-Feito com ❤️ por [Kalleby Evangelho](https://github.com/KallebyX) - 2025
+Portifolio/
+├── app.py                # Arquivo principal Python
+├── requirements.txt      # Dependências do projeto
+├── static/               # Pasta para arquivos estáticos (CSS, JS, imagens)
+│   ├── css/
+│   ├── js/
+│   └── img/
+├── templates/            # Arquivos HTML renderizados via Flask
+│   ├── index.html
+│   ├── sobre.html
+│   └── projetos.html
+├── assets/
+│   └── prints/           # Printscreens usados no README
+└── README.md             # Documentação do projeto
