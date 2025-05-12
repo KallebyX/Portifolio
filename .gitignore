@@ -67,4 +67,5 @@ node_modules/
 *.js.map
 
 # Screenshot cache (if desired)
-static/img/projetos/*.png
+static/img/projetos/*.pngtest_redirect.py
+*.env
