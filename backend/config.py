@@ -19,3 +19,12 @@ class Config:
     GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
     GOOGLE_CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")
     AUTHORIZED_EMAIL = os.getenv("AUTHORIZED_EMAIL")
+
+    # URIs de redirecionamento para OAuth2 Google
+    GOOGLE_REDIRECT_URI_DEV  = os.getenv("GOOGLE_REDIRECT_URI_DEV")
+    GOOGLE_REDIRECT_URI_PROD = os.getenv("GOOGLE_REDIRECT_URI_PROD")
+    # Seleciona a URI correta conforme o ambiente
+    if os.getenv("FLASK_ENV", "development") == "production":
+        GOOGLE_REDIRECT_URI = GOOGLE_REDIRECT_URI_PROD
+    else:
+        GOOGLE_REDIRECT_URI = GOOGLE_REDIRECT_URI_DEV

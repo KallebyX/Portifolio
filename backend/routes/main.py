@@ -34,3 +34,7 @@ def download_pdf(filename):
 @main.app_errorhandler(404)
 def pagina_nao_encontrada(error):
     return render_template("404.html"), 404
+
+@main.route('/download-curriculo')
+def download_curriculo():
+    return send_from_directory('static/pdf', 'Kalleby_EvangelhoMota_currículo.pdf', as_attachment=True)
