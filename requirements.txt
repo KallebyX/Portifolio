@@ -1,10 +1,17 @@
+# Core Flask
 Flask==3.1.0
 Flask-Mail==0.10.0
 Flask-SQLAlchemy==3.1.1
 Flask-Migrate==4.1.0
 Flask-Login==0.6.3
+Flask-Session==0.8.0
+
+# Auth
 Authlib==1.5.2
+
+# Utilities
 python-dotenv==1.1.0
 requests==2.31.0
+
+# Server
 gunicorn==20.1.0
-Flask-Session==0.8.0
