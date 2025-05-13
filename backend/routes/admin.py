@@ -26,14 +26,14 @@ def painel_admin():
 @admin.route("/admin/adicionar", methods=["POST"])
 @login_required
 def adicionar_projeto():
-    screenshot_path = capturar_screenshot(request.form.get("site", ""), request.form["nome"])
+    screenshot_url = capturar_screenshot(request.form.get("site", ""), request.form["nome"])
     ordem_val = int(request.form.get("ordem", 0))
     novo = Projeto(
         nome=request.form["nome"],
         descricao=request.form["descricao"],
         categoria=request.form["categoria"],
         link=request.form["link"],
-        imagem=f"https://raw.githubusercontent.com/KallebyX/Portifolio/main/backend/static/img/projetos/{screenshot_path}",
+        imagem=screenshot_url,
         stack=request.form["stack"],
         site=request.form.get("site"),
         ordem=ordem_val
@@ -73,8 +73,8 @@ def editar_projeto(id):
         # - O site foi alterado
         # - Ou não existe imagem cadastrada ainda
         if site_url != projeto.site or not projeto.imagem:
-            screenshot_path = capturar_screenshot(site_url, projeto.nome)
-            projeto.imagem = f"https://raw.githubusercontent.com/KallebyX/Portifolio/main/backend/static/img/projetos/{screenshot_path}"
+            screenshot_url = capturar_screenshot(site_url, projeto.nome)
+            projeto.imagem = screenshot_url
 
         db.session.commit()
         flash("✏️ Projeto atualizado com sucesso!", "info")
