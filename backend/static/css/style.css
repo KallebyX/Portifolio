@@ -1,4 +1,4 @@
-/* css/style.css */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
 
 :root {
     --bg-light: #f8f9fa;
@@ -6,131 +6,27 @@
     --text-light: #212529;
     --text-dark: #f1f1f1;
     --primary: #007bff;
-  }
-  
-  body {
-    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
     scroll-behavior: smooth;
     background-color: var(--bg-light);
     color: var(--text-light);
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  body.dark-mode {
-    background-color: var(--bg-dark);
-    color: var(--text-dark);
-  }
-  
-  h1, h2, h3, h4, h5 {
-    font-weight: 600;
-  }
-  
-  .section-title {
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 40px;
-    color: var(--primary);
-  }
-  
-  .btn-primary, .btn-success, .btn-outline-primary {
-    border-radius: 25px;
-    padding: 10px 20px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-  }
-  
-  .btn-primary:hover, .btn-success:hover, .btn-outline-primary:hover {
-    transform: scale(1.05);
-  }
-  
-  .navbar-brand {
-    font-weight: 700;
-    color: var(--primary) !important;
-  }
-  
-  .nav-link.active {
-    font-weight: 700;
-    color: var(--primary) !important;
-  }
-  
-  .card {
-    border: none;
-    border-radius: 1rem;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-    background-color: #fff;
-    color: #000;
-  }
-  
-  body.dark-mode .card {
-    background-color: #1e1e1e;
-    color: #fff;
-  }
-  
-  .card:hover {
-    transform: scale(1.03);
-  }
-  
-  .project-img {
-    height: 200px;
-    object-fit: cover;
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
-  }
-  
-  footer {
-    font-size: 0.9rem;
-    background-color: #343a40;
-    color: #fff;
-    transition: background-color 0.3s;
-  }
-  
-  footer a {
-    color: #ffffff;
-    text-decoration: underline;
-  }
-  
-  footer a:hover {
-    color: #f8d210;
-    text-decoration: none;
-  }
-  
-  @media (max-width: 768px) {
-    .section-title {
-      font-size: 1.8rem;
-    }
-    .btn {
-      width: 100%;
-      margin-bottom: 10px;
-    }
-    .project-img {
-      height: 160px;
-    }
-  }
-  
-  /* Toggle Button */
-  .toggle-theme {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 9999;
-    background-color: var(--primary);
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    cursor: pointer;
-  }
+    transition: background-color 0.4s ease, color 0.4s ease;
+    font-size: 1.125rem; /* Aumentado de 1rem para 1.125rem (18px) */
+    line-height: 1.8;
+}
 
 body.dark-mode {
-  background-color: var(--bg-dark);
-  color: var(--text-dark);
+    background-color: var(--bg-dark) !important;
+    color: var(--text-dark) !important;
+}
+
+/* Textos */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    letter-spacing: -0.25px;
 }
 
 body.dark-mode h1,
@@ -138,82 +34,669 @@ body.dark-mode h2,
 body.dark-mode h3,
 body.dark-mode h4,
 body.dark-mode h5,
-body.dark-mode .section-title {
-  color: var(--primary);
+body.dark-mode h6 {
+    color: #66d9e8 !important;
+}
+
+/* Links */
+a {
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
 }
 
 body.dark-mode a {
-  color: #61dafb;
+    color: #66d9e8 !important;
 }
 
 body.dark-mode a:hover {
-  color: #90e0ff;
-  text-decoration: underline;
+    color: #90e0ff !important;
+    text-decoration: underline;
+}
+
+/* Navbar */
+.navbar {
+    transition: background-color 0.4s ease;
+}
+
+body.dark-mode .navbar {
+    background-color: #1e1e1e !important;
+    color: #f1f1f1 !important;
+}
+
+body.dark-mode .navbar .nav-link {
+    color: #f1f1f1 !important;
+}
+
+body.dark-mode .navbar .nav-link:hover {
+    color: #66d9e8 !important;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card:hover {
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px) scale(1.02);
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .card {
+    background-color: #1e1e1e !important;
+    color: #f1f1f1 !important;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05) !important;
+}
+
+body.dark-mode .card:hover {
+  box-shadow: 0 12px 20px rgba(255, 255, 255, 0.08);
+  background-color: #2e2e2e !important;
+  transform: translateY(-5px) scale(1.02);
+}
+
+body.dark-mode .card-body {
+    background-color: #1e1e1e !important;
+    color: #f1f1f1 !important;
+}
+
+/* Botões */
+.btn, .btn-primary, .btn-outline-primary {
+    border-radius: 1.5rem;
+    padding: 10px 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none !important;
+    text-transform: none;
+    letter-spacing: 0.5px;
+}
+
+.btn:hover, .btn-primary:hover, .btn-outline-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
 }
 
 body.dark-mode .btn,
 body.dark-mode .btn-primary,
 body.dark-mode .btn-outline-primary {
-  background-color: #1e1e1e;
-  color: #fff;
-  border-color: var(--primary);
+    background-color: #1e1e1e !important;
+    color: #f1f1f1 !important;
+    border-color: #66d9e8 !important;
 }
 
 body.dark-mode .btn:hover,
 body.dark-mode .btn-primary:hover,
 body.dark-mode .btn-outline-primary:hover {
-  background-color: var(--primary);
-  color: #fff;
-  transform: scale(1.05);
+    background-color: #66d9e8 !important;
+    color: #121212 !important;
+    border-color: #66d9e8 !important;
+    box-shadow: 0 4px 10px rgba(102, 217, 232, 0.3);
+    transition: all 0.3s ease;
 }
 
-body.dark-mode footer {
-  background-color: #1a1a1a;
-  color: #ccc;
+/* Inputs, Selects e Textareas refinados */
+input, textarea, select {
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  font-size: 1.125rem;
+  transition: all 0.3s ease;
 }
 
-body.dark-mode .card {
-  background-color: #1e1e1e;
-  color: #f1f1f1;
+input:focus, textarea:focus, select:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
-/* Melhorias adicionais para modo escuro */
+/* Estilos para Dark Mode */
 body.dark-mode input,
 body.dark-mode textarea,
 body.dark-mode select {
-  background-color: #2a2a2a;
-  color: #f1f1f1;
-  border: 1px solid #444;
+  background-color: #2a2a2a !important;
+  color: #f1f1f1 !important;
+  border: 1px solid #444 !important;
 }
 
 body.dark-mode input::placeholder,
-body.dark-mode textarea::placeholder {
-  color: #aaa;
+body.dark-mode textarea::placeholder,
+body.dark-mode select::placeholder {
+  color: #aaa !important;
 }
 
-body.dark-mode label {
-  color: #e0e0e0;
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+  background-color: #2a2a2a !important;
+  color: #fff !important;
+  border-color: #66d9e8 !important;
+  box-shadow: 0 0 0 0.2rem rgba(102, 217, 232, 0.25) !important;
 }
 
-body.dark-mode .form-control:focus {
-  background-color: #2a2a2a;
-  color: #fff;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
-}
-
+/* Modais */
 body.dark-mode .modal-content {
-  background-color: #1e1e1e;
-  color: #fff;
+    background-color: #1e1e1e !important;
+    color: #f1f1f1 !important;
 }
 
 body.dark-mode .modal-header,
 body.dark-mode .modal-footer {
-  border-color: #333;
+    border-color: #333 !important;
 }
 
+/* Footer */
+footer {
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+footer a:hover {
+  color: #007bff;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode footer {
+    background-color: #1a1a1a !important;
+    color: #ccc !important;
+}
+
+body.dark-mode footer a:hover {
+  color: #66d9e8 !important;
+}
+
+/* List Groups */
 body.dark-mode .list-group-item {
+    background-color: #2a2a2a !important;
+    color: #f1f1f1 !important;
+    border-color: #444 !important;
+}
+
+/* Textos padrão Bootstrap adaptados */
+body.dark-mode .text-danger { color: #ff6b6b !important; }
+body.dark-mode .text-muted { color: #cccccc !important; opacity: 1 !important; }
+body.dark-mode .text-primary { color: #66d9e8 !important; }
+body.dark-mode .text-success { color: #51cf66 !important; }
+body.dark-mode .text-warning { color: #ffe066 !important; }
+body.dark-mode .text-info { color: #66d9e8 !important; }
+body.dark-mode .text-secondary { color: #b0b0b0 !important; }
+
+/* Botão de Troca de Tema */
+.toggle-theme {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+    text-decoration: none !important;
+}
+
+.toggle-theme:hover {
+    background-color: #66d9e8;
+    transform: rotate(360deg) scale(1.1);
+    box-shadow: 0 8px 20px rgba(102, 217, 232, 0.5);
+}
+
+/* Hero Section Ajustado para Dark Mode */
+.hero-section {
+  background: linear-gradient(to right, #007bff, #00c6ff);
+  min-height: 100vh;
+  transition: background 0.4s ease;
+}
+
+body.dark-mode .hero-section {
+  background: linear-gradient(to right, #0a3d62, #3c6382) !important;
+}
+
+/* Section Trajetória Ajustado para Dark Mode */
+.section-trajectory {
+  background-color: #f8f9fa;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+body.dark-mode .section-trajectory {
+  background-color: #1e1e1e !important;
+  box-shadow: 0 0 10px rgba(255,255,255,0.05) !important;
+}
+
+body.dark-mode .section-trajectory .card {
+  background-color: #2a2a2a !important;
+  color: #f1f1f1 !important;
+  box-shadow: 0 0 8px rgba(255,255,255,0.03) !important;
+}
+
+/* Section Trajetória com fundo igual ao Hero Section */
+.section-trajectory {
+  background: linear-gradient(to right, #007bff, #00c6ff);
+  border-radius: 1rem;
+  padding: 3rem 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+body.dark-mode .section-trajectory {
+  background: linear-gradient(to right, #0a3d62, #3c6382) !important;
+  box-shadow: 0 0 10px rgba(255,255,255,0.05) !important;
+}
+
+/* Cards dentro da Trajetória no Dark Mode */
+body.dark-mode .section-trajectory .card {
+  background-color: #2a2a2a !important;
+  color: #f1f1f1 !important;
+  box-shadow: 0 0 8px rgba(255,255,255,0.03) !important;
+}
+/* Section Light Ajustado */
+.section-light {
+  background-color: #f1f3f5;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body.dark-mode .section-light {
+  background-color: #1e1e1e !important;
+}
+
+/* Ajuste extra para os cards dentro das seções light */
+.section-light .card {
+  background-color: #ffffff;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body.dark-mode .section-light .card {
+  background-color: #1e1e1e !important;
+  color: #f1f1f1 !important;
+  border: 1px solid #333 !important;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.03) !important;
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .section-light .card:hover {
+  background-color: #2a2a2a !important;
+  border-color: #555 !important;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08) !important;
+  transform: translateY(-3px);
+}
+/* Animações globais para entrada de elementos */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.zoom-in {
+  opacity: 0;
+  transform: scale(0.95);
+  animation: zoomIn 0.5s forwards;
+}
+
+@keyframes zoomIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Aplicação automática para todos os .card e .section-light em page load */
+.card, .section-light {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Ajustar para evitar conflitos de múltiplas animações ao mesmo tempo */
+.card:hover, .btn:hover {
+  animation: none;
+}
+/* Correção para nav-link */
+.nav-link {
+  text-decoration: none !important;
+  transition: color 0.3s ease;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.nav-link:hover {
+  text-decoration: none !important;
+  color: var(--primary);
+}
+
+body.dark-mode .nav-link {
+  color: #f1f1f1 !important;
+  text-decoration: none !important;
+}
+
+body.dark-mode .nav-link:hover {
+  color: #66d9e8 !important;
+  text-decoration: none !important;
+}
+
+/* Animação de entrada para o botão de troca de tema */
+.toggle-theme {
+  opacity: 0;
+  transform: scale(0.8);
+  animation: fadeInButton 0.5s forwards 0.3s;
+}
+
+@keyframes fadeInButton {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Nova animação suave ao rolar para seções */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.5s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+. /* Ajuste refinado para headings */
+. /* Ajuste refinado para headings */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+h5 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Ajuste refinado para headings */
+h6 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Refinamento para parágrafos e textos auxiliares */
+p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.text-muted {
+  color: #6c757d;
+  opacity: 0.8;
+}
+
+body.dark-mode p {
+  color: #f1f1f1;
+}
+
+body.dark-mode .text-muted {
+  color: #cccccc !important;
+  opacity: 0.8 !important;
+}
+/* Melhorias visuais para foco de inputs, selects e textareas */
+input:focus, textarea:focus, select:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  border-color: #007bff;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* Foco no Dark Mode */
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 0 8px rgba(102, 217, 232, 0.3);
+  border-color: #66d9e8;
   background-color: #2a2a2a;
   color: #f1f1f1;
-  border-color: #444;
+}
+/* Navbar transparente com blur elegante */
+.navbar {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+}
+
+body.dark-mode .navbar {
+  background-color: rgba(18, 18, 18, 0.8) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
+}
+/* Link ativo da Navbar */
+.nav-link.active {
+  color: #007bff !important;
+  font-weight: 700;
+  position: relative;
+}
+
+body.dark-mode .nav-link.active {
+  color: #66d9e8 !important;
+  font-weight: 700;
+}
+
+/* Pequena animação de realce no hover e active */
+.nav-link:hover,
+.nav-link.active {
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Cor fixa para a marca da navbar (ex: "Kalleby Evangelho") */
+.navbar-brand {
+  color: #007bff !important;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode .navbar-brand {
+  color: #66d9e8 !important;
+}
+
+/* Animação hover para a marca (Kalleby Evangelho) */
+.navbar-brand:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+. /* Navbar Shrink Effect */
+.navbar {
+  transition: all 0.4s ease;
+}
+
+.navbar-shrink {
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .navbar-shrink {
+  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.1);
+}
+
+/* Ajustes de responsividade geral */
+
+/* Para telas médias (tablet landscape) */
+@media (max-width: 991.98px) {
+  .navbar {
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+  }
+
+  .navbar-shrink {
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+  }
+
+  .hero-section {
+    min-height: 80vh;
+  }
+
+  .toggle-theme {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+}
+
+/* Para telas pequenas (tablet portrait e smartphones grandes) */
+@media (max-width: 767.98px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  .navbar {
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+  }
+
+  .toggle-theme {
+    width: 42px;
+    height: 42px;
+    font-size: 1.2rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .section-trajectory {
+    padding: 2rem 1rem;
+  }
+}
+
+/* Para smartphones menores */
+@media (max-width: 575.98px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  .toggle-theme {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  footer {
+    font-size: 0.8rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+  }
+}
+
+/* Fade out suave entre páginas */
+.fade-out {
+  animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+/* Ajuste no Hero Section para parallax leve */
+.hero-section {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+}
+
+/* Responsividade refinada para cards de projetos */
+.project-card {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Ajustes de grid para projetos responsivos */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* Responsividade extra para projetos em telas pequenas */
+@media (max-width: 575.98px) {
+  .projects-grid {
+    gap: 1.5rem;
+  }
+}
+
+/* Melhorias de responsividade para filtros de projetos */
+@media (max-width: 575.98px) {
+  .btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .btn-group .btn {
+    flex: 1 1 auto;
+    min-width: 120px;
+  }
 }

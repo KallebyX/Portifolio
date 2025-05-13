@@ -60,3 +60,10 @@ def create_app():
 if __name__ == "__main__":
     app = create_app()
     app.run(debug=True)
+    @app.route('/sitemap.xml')
+    def sitemap():
+        return app.send_static_file('sitemap.xml')
+
+    @app.route('/robots.txt')
+    def robots():
+        return app.send_static_file('robots.txt')

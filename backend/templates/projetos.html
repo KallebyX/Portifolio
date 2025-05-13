@@ -7,7 +7,7 @@
 <section class="container mt-5 pt-5 text-center">
   <h2 class="mb-4 fw-bold text-primary" data-aos="fade-up">Meus Projetos</h2>
   <p class="text-muted mb-4">Conheça alguns dos sistemas, protótipos e plataformas que desenvolvi com foco em saúde, educação e IA.</p>
-  <div class="btn-group shadow-sm" role="group" aria-label="Filtros de categoria">
+  <div class="btn-group flex-wrap justify-content-center shadow-sm" role="group" aria-label="Filtros de categoria">
     <button class="btn btn-outline-primary filter-btn" onclick="filterProjects('todos')">Todos</button>
     <button class="btn btn-outline-primary filter-btn" onclick="filterProjects('saude')">Saúde</button>
     <button class="btn btn-outline-primary filter-btn" onclick="filterProjects('educacao')">Educação</button>
@@ -18,9 +18,9 @@
 
 <!-- Cards de Projetos -->
 <section class="container mt-5 mb-5">
-  <div class="row g-4" id="projects-container">
+  <div class="projects-grid" id="projects-container">
     {% for projeto in projetos %}
-      <div class="col-md-4 project {{ projeto.categoria | lower }} {{ projeto.stack | lower }}" data-aos="zoom-in" data-aos-delay="{{ loop.index0 * 100 }}">
+      <div class="project {{ projeto.categoria | lower }} {{ projeto.stack | lower }}" data-aos="zoom-in" data-aos-delay="{{ loop.index0 * 100 }}">
         <div class="card project-card h-100 shadow-sm border-0">
           <img src="{{ projeto.imagem }}" class="card-img-top project-img" alt="Imagem do projeto {{ projeto.nome }}">
           <div class="card-body d-flex flex-column">
@@ -40,7 +40,7 @@
     {% endfor %}
   </div>
 </section>
-<section class="text-center py-4 bg-white border-top">
-  <small class="text-muted">CNPJ Kalleby Evangelho Mota: 49.549.704/0001-07</small>
+<section class="text-center py-4 footer-cnpj border-top">
+  <small class="footer-cnpj-text">CNPJ Kalleby Evangelho Mota: 49.549.704/0001-07</small>
 </section>
 {% endblock %}

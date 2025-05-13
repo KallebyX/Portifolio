@@ -156,21 +156,6 @@
   </form>
 </section>
 
-<script>
-  let currentStep = 1;
-  function nextStep() {
-    document.getElementById(`step-${currentStep}`).classList.add('d-none');
-    currentStep++;
-    const next = document.getElementById(`step-${currentStep}`);
-    if (next) next.classList.remove('d-none');
-  }
-  function prevStep() {
-    document.getElementById(`step-${currentStep}`).classList.add('d-none');
-    currentStep--;
-    const prev = document.getElementById(`step-${currentStep}`);
-    if (prev) prev.classList.remove('d-none');
-  }
-</script>
 
 <!-- Modal de Sucesso -->
 <div class="modal fade" id="modalSucesso" tabindex="-1" aria-labelledby="modalSucessoLabel" aria-hidden="true">
@@ -241,7 +226,7 @@
     </div>
   </div>
 </div>
-<section class="text-center py-4 bg-white border-top">
-  <small class="text-muted">CNPJ Kalleby Evangelho Mota: 49.549.704/0001-07</small>
+<section class="text-center py-4 footer-cnpj border-top">
+  <small class="footer-cnpj-text">CNPJ Kalleby Evangelho Mota: 49.549.704/0001-07</small>
 </section>
 {% endblock %}

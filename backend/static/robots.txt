@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.kallebyevangelho.com.br/sitemap.xml
