@@ -15,6 +15,8 @@ from backend.routes.contato import contato as contato_blueprint
 from backend.routes.admin import admin as admin_blueprint
 from backend.auth.google_auth import google_bp
 from flask_session import Session
+from flask_migrate import upgrade
+from flask import Blueprint
 
 load_dotenv()
 
@@ -43,6 +45,15 @@ def create_app():
     app.register_blueprint(contato_blueprint)
     app.register_blueprint(google_bp, url_prefix="/login")
     app.register_blueprint(admin_blueprint)
+
+    migrar_bp = Blueprint('migrar', __name__)
+
+    @migrar_bp.route('/migrar')
+    def migrar_banco():
+        upgrade()
+        return "Migração feita com sucesso!"
+
+    app.register_blueprint(migrar_bp)
 
     return app
 
