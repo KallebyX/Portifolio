@@ -64,21 +64,22 @@ def editar_projeto(id):
         projeto.categoria = request.form["categoria"]
         projeto.link = request.form["link"]
         projeto.stack = request.form["stack"]
-
-        # Atualiza posição se fornecido
         projeto.ordem = int(request.form.get("ordem", projeto.ordem))
 
         site_url = request.form.get("site", "")
-        if site_url and site_url != projeto.site:
-            projeto.site = site_url
+        projeto.site = site_url  # Atualiza o site de qualquer forma
+
+        # Captura nova imagem se:
+        # - O site foi alterado
+        # - Ou não existe imagem cadastrada ainda
+        if site_url != projeto.site or not projeto.imagem:
             screenshot_path = capturar_screenshot(site_url, projeto.nome)
             projeto.imagem = f"https://raw.githubusercontent.com/KallebyX/Portifolio/main/backend/static/img/projetos/{screenshot_path}"
-        else:
-            projeto.site = site_url
 
         db.session.commit()
         flash("✏️ Projeto atualizado com sucesso!", "info")
         return redirect(url_for("admin.painel_admin"))
+
     return render_template("editar_projeto.html", projeto=projeto)
 
 @admin.route("/admin/move/<int:id>/<direction>")
