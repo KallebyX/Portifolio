@@ -33,7 +33,7 @@ def adicionar_projeto():
         descricao=request.form["descricao"],
         categoria=request.form["categoria"],
         link=request.form["link"],
-        imagem=screenshot_path,
+        imagem=f"https://raw.githubusercontent.com/KallebyX/Portifolio/main/backend/static/screenshots/{request.form['nome']}.png",
         stack=request.form["stack"],
         site=request.form.get("site"),
         ordem=ordem_val
@@ -71,7 +71,8 @@ def editar_projeto(id):
         site_url = request.form.get("site", "")
         if site_url and site_url != projeto.site:
             projeto.site = site_url
-            projeto.imagem = capturar_screenshot(site_url, projeto.nome)
+            capturar_screenshot(site_url, projeto.nome)
+            projeto.imagem = f"https://raw.githubusercontent.com/KallebyX/Portifolio/main/backend/static/screenshots/{projeto.nome}.png"
         else:
             projeto.site = site_url
 
