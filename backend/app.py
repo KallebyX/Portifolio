@@ -34,12 +34,10 @@ def create_app():
     mail.init_app(app)
     db.init_app(app)
     migrate = Migrate(app, db)
-    # Garante criação de todas as tabelas definidas nos models
-    with app.app_context():
-        db.create_all()
     login_manager.init_app(app)
     login_manager.login_view = "google.login"
 
+    # Registro dos Blueprints
     app.register_blueprint(main_blueprint)
     app.register_blueprint(form_blueprint)
     app.register_blueprint(contato_blueprint)
