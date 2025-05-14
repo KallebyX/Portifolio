@@ -55,11 +55,7 @@ def create_app():
 
     app.register_blueprint(migrar_bp)
 
-    return app
-
-if __name__ == "__main__":
-    app = create_app()
-    app.run(debug=True)
+    # Rotas para SEO e verificação
     @app.route('/sitemap.xml')
     def sitemap():
         return app.send_static_file('sitemap.xml')
@@ -67,3 +63,13 @@ if __name__ == "__main__":
     @app.route('/robots.txt')
     def robots():
         return app.send_static_file('robots.txt')
+
+    @app.route('/google8d6a10aad4e7c671.html')
+    def google_verification():
+        return app.send_static_file('google8d6a10aad4e7c671.html')
+
+    return app
+
+if __name__ == "__main__":
+    app = create_app()
+    app.run(debug=True)
