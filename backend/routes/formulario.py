@@ -4,6 +4,7 @@ import os
 from flask import Blueprint, request, redirect, url_for, flash, current_app
 from flask_mail import Message
 from werkzeug.utils import secure_filename
+from backend.extensions import mail
 
 form = Blueprint('form', __name__)
 
@@ -34,11 +35,13 @@ def enviar_formulario():
       <meta charset="UTF-8">
       <title>Nova Ideia de Projeto</title>
     </head>
-    <body style="font-family:Arial,sans-serif;background:#f4f6f8;padding:20px;">
-      <div style="max-width:600px;margin:auto;background:#fff;padding:20px;border-radius:8px;">
-        <h2 style="color:#007bff;">Nova Ideia de Projeto</h2>
-        <ul style="list-style:none;padding:0;">{perguntas_respostas}</ul>
-        <p style="font-size:12px;color:#666;">Enviada via Portfólio de Kalleby Evangelho</p>
+    <body style="font-family:Arial,sans-serif;background:#f9f9f9;padding:20px;">
+      <div style="max-width:600px;margin:auto;background:#ffffff;padding:30px;border-radius:10px;box-shadow:0 2px 5px rgba(0,0,0,0.1);">
+        <h2 style="color:#007bff;">💡 Nova Ideia de Projeto</h2>
+        <p>Você recebeu uma nova proposta através do Portfólio de Kalleby Evangelho:</p>
+        <ul style="list-style:none;padding:0;font-size:14px;color:#333;">{perguntas_respostas}</ul>
+        <hr style="border:none;border-top:1px solid #eee;margin:20px 0;">
+        <p style="font-size:12px;color:#999;">Mensagem enviada automaticamente pelo sistema de contato do portfólio.</p>
       </div>
     </body>
     </html>
@@ -47,7 +50,7 @@ def enviar_formulario():
     # 4. Prepara a mensagem
     remetente = current_app.config.get('MAIL_USERNAME') or os.getenv('MAIL_USERNAME')
     msg = Message(
-        subject="🆕 Nova Ideia de Projeto Recebida",
+        subject="💡 Nova Ideia de Projeto Recebida",
         sender=remetente,
         recipients=[destinatario],
         html=corpo_email
@@ -58,11 +61,8 @@ def enviar_formulario():
         filename = secure_filename(arquivo.filename)
         msg.attach(filename, arquivo.content_type, arquivo.read())
 
-    # 6. Obtém a instância Mail sem importar diretamente para evitar circular import
+    # 6. Envia o email usando a instância importada mail
     try:
-        mail = current_app.extensions.get('mail')
-        if not mail:
-            raise RuntimeError("Flask-Mail não está configurado corretamente.")
         mail.send(msg)
         flash('✅ Formulário enviado com sucesso!', 'success')
     except Exception as e:
@@ -71,4 +71,3 @@ def enviar_formulario():
 
     # 7. Redireciona de volta ao formulário
     return redirect(url_for('main.formulario'))
-

@@ -1,6 +1,6 @@
 # backend/app.py
 from flask import Flask, render_template
-from flask_mail import Mail
+from backend.extensions import mail
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from dotenv import load_dotenv
@@ -20,7 +20,6 @@ from flask import Blueprint
 
 load_dotenv()
 
-mail = Mail()
 login_manager = LoginManager()
 
 @login_manager.user_loader
