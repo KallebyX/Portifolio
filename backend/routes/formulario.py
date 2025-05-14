@@ -6,7 +6,28 @@ from flask_mail import Message
 from werkzeug.utils import secure_filename
 from backend.extensions import mail
 
+EXTENSOES_PERMITIDAS = {'pdf', 'png', 'jpg', 'jpeg', 'doc', 'docx'}
+
+def extensao_permitida(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in EXTENSOES_PERMITIDAS
+
 form = Blueprint('form', __name__)
+
+labels_bonitos = {
+    "nome": "Nome completo",
+    "email": "E-mail",
+    "whatsapp": "WhatsApp",
+    "descricao_geral": "Descrição geral do projeto",
+    "publico_alvo": "Público-alvo",
+    "problema_necessidade": "Problema/Necessidade",
+    "funcionalidades": "Funcionalidades principais",
+    "diferenciais": "Diferenciais desejados",
+    "plataforma": "Plataforma pretendida",
+    "integracoes": "Integrações necessárias",
+    "prazo": "Prazo desejado",
+    "orcamento": "Orçamento estimado",
+    "observacoes": "Observações extras",
+}
 
 @form.route("/enviar-formulario", methods=["POST"])
 def enviar_formulario():
@@ -24,7 +45,7 @@ def enviar_formulario():
     # 2. Monta a lista de perguntas e respostas em <li>
     perguntas_respostas = ""
     for campo, resposta in dados.items():
-        label = campo.replace("_", " ").capitalize()
+        label = labels_bonitos.get(campo, campo.replace("_", " ").capitalize())
         perguntas_respostas += f"<li><strong>{label}:</strong> {resposta}</li>"
 
     # 3. Constroi o template HTML do email
@@ -56,8 +77,8 @@ def enviar_formulario():
         html=corpo_email
     )
 
-    # 5. Anexa arquivo, se houver
-    if arquivo and arquivo.filename:
+    # 5. Anexa arquivo, se houver e permitido
+    if arquivo and arquivo.filename and extensao_permitida(arquivo.filename):
         filename = secure_filename(arquivo.filename)
         msg.attach(filename, arquivo.content_type, arquivo.read())
 
@@ -66,8 +87,12 @@ def enviar_formulario():
         mail.send(msg)
         flash('✅ Formulário enviado com sucesso!', 'success')
     except Exception as e:
-        current_app.logger.error(f"Erro ao enviar e-mail: {e}")
+        current_app.logger.exception("Erro ao enviar e-mail:")
         flash('❌ Erro ao enviar o formulário. Tente novamente mais tarde.', 'danger')
+    else:
+        if arquivo and arquivo.filename and not extensao_permitida(arquivo.filename):
+            flash('❌ Tipo de arquivo não permitido.', 'danger')
+            return redirect(url_for('main.formulario'))
 
     # 7. Redireciona de volta ao formulário
     return redirect(url_for('main.formulario'))

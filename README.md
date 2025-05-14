@@ -111,3 +111,129 @@ Você é livre para usar, modificar e distribuir este projeto, desde que preserv
 Desenvolvido e mantido por [Kalleby Evangelho](https://www.kallebyevangelho.com.br/) — **Engenharia, Inovação e Futuro.**
 
 ---
+# 🚀 Portfólio Evolutivo - Kalleby Evangelho
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-Em%20Constante%20Evolução-blue" alt="Status Em Evolução" />
+  <img src="https://img.shields.io/badge/Deploy-Render.com-blueviolet" alt="Deploy Render" />
+  <img src="https://img.shields.io/badge/Framework-Flask-red" alt="Framework Flask" />
+  <img src="https://img.shields.io/badge/PWA-Instalável-success" alt="PWA Instalável" />
+  <img src="https://img.shields.io/badge/Database-PostgreSQL-blue" alt="PostgreSQL" />
+  <img src="https://img.shields.io/badge/License-MIT-lightgrey" alt="Licença MIT" />
+</p>
+
+---
+
+## 📜 Sobre o Projeto
+
+Este projeto é o portfólio oficial de **Kalleby Evangelho**, criado para apresentar de maneira inovadora suas habilidades, projetos e visão de futuro.
+
+Mais do que um portfólio, trata-se de uma **plataforma viva**, focada em:
+
+- Tecnologia com Propósito
+- Inovação com Empatia
+- Inclusão e Impacto Social
+- Futurismo aplicado à Engenharia, IA e Saúde
+
+O projeto evolui constantemente, incorporando novas tecnologias, aprimorando SEO, performance e usabilidade.
+
+---
+
+## ✨ Principais Funcionalidades
+
+- Página inicial com introdução inspiradora
+- Linha do tempo profissional interativa
+- Cards de projetos dinâmicos e escaláveis
+- Formulário de ideias inteligente para novos clientes
+- Área de contato otimizada com feedback visual
+- Dark Mode / Light Mode automáticos
+- PWA Instalável no celular (Manifest.json configurado)
+- SEO avançado para Google, LinkedIn, Twitter e WhatsApp
+- Animações leves com AOS.js para melhor UX
+- Estrutura escalável para expansão futura (Plataforma SaaS)
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+### Front-end
+- **HTML5** - Estruturação semântica
+- **CSS3** - Estilização responsiva e moderna
+- **JavaScript Vanilla** - Funcionalidades dinâmicas básicas
+- **Bootstrap 5** - Framework para design responsivo
+
+### Back-end
+- **Python 3.13**
+- **Flask** - Framework rápido e seguro para aplicações web
+- **Flask-Mail** - Integração de e-mails SMTP
+- **SQLAlchemy** - ORM para banco de dados
+- **PostgreSQL** - Banco de dados relacional robusto
+
+### Infraestrutura e Deploy
+- **Render.com** - Deploy automático e hosting
+- **AWS S3** - Armazenamento de imagens de projetos
+- **Gunicorn** - Servidor WSGI para produção
+
+---
+
+## 📈 SEO e PWA
+
+- **Manifest.json** configurado para tornar o site **instalável** no celular (PWA).
+- **OpenGraph** e **Twitter Cards** otimizados para compartilhamento em redes sociais.
+- **Imagens otimizadas** com `alt texts` estratégicos para indexação Google.
+- **Responsividade Mobile First**.
+- **Melhorias de Acessibilidade** (contrastes, navegação por teclado).
+
+---
+
+## 📂 Estrutura do Projeto
+
+```bash
+Portifolio/
+├── backend/
+│   ├── app.py              # Inicialização principal do app Flask
+│   ├── templates/          # Páginas HTML estruturadas (Jinja2)
+│   ├── static/             # Arquivos estáticos (CSS, JS, imagens, ícones PWA)
+│   ├── utils/              # Funções auxiliares e integrações
+│   └── extensions.py       # Extensões como e-mail, banco de dados
+├── requirements.txt        # Dependências Python
+├── manifest.json           # Configuração do Progressive Web App
+├── run.py                  # Arquivo para execução local
+├── README.md               # Documentação principal
+└── .env                    # Variáveis de ambiente (não versionado)
+```
+
+---
+
+## 📈 Roadmap Atualizado
+
+| Mês | Prioridades |
+|:----|:------------|
+| Novembro 2024 | Finalização de SEO, otimização PWA, refinamento UI/UX |
+| Dezembro 2024 | Painel de Administração Premium, Área Exclusiva para Clientes |
+| 2025 | Transformação em Plataforma SaaS, abertura de APIs públicas |
+
+Mais detalhes no [Roadmap Público](https://github.com/KallebyX/Portifolio/projects).
+
+---
+
+## 📜 Licença
+
+Este projeto está licenciado sob a [Licença MIT](LICENSE).
+
+Você é livre para usar, modificar e distribuir este projeto, desde que preserve os devidos créditos.
+
+---
+
+## ✨ Autor
+
+Desenvolvido e mantido por:
+
+[Kalleby Evangelho](https://www.kallebyevangelho.com.br/) — **Tecnologia com Propósito. Inovação com Empatia.**
+
+<p align="left">
+  <a href="https://github.com/KallebyX" target="_blank"><img src="https://img.shields.io/badge/GitHub-KallebyX-black?logo=github" alt="GitHub KallebyX" /></a>
+  <a href="https://www.linkedin.com/in/kalleby-evangelho/" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-Kalleby%20Evangelho-blue?logo=linkedin" alt="LinkedIn Kalleby Evangelho" /></a>
+</p>
+
+---

@@ -15,7 +15,7 @@
   {% endwith %}
 
   <!-- Formulário de cadastro de projeto -->
-  <div class="card p-4 border-0 shadow">
+  <div class="card p-4 border-0 shadow contact-form-card">
     <h5 class="mb-4">Adicionar novo projeto</h5>
     <form action="/admin/adicionar" method="POST">
       <div class="row g-3">
@@ -53,7 +53,9 @@
         </div>
       </div>
       <div class="text-end mt-3">
-        <button type="submit" class="btn btn-primary">Salvar Projeto</button>
+        <button type="submit" class="btn btn-primary rounded-pill px-4">
+          <i class="fas fa-save me-2"></i>Salvar Projeto
+        </button>
       </div>
     </form>
   </div>
@@ -62,11 +64,13 @@
   <hr class="my-5">
   <h4 class="mb-3">Projetos cadastrados</h4>
   <div class="mb-3">
-    <button id="save-order-btn" class="btn btn-primary">Salvar Ordem</button>
+    <button id="save-order-btn" class="btn btn-success rounded-pill px-4">
+      <i class="fas fa-save me-2"></i>Salvar Ordem
+    </button>
   </div>
   <div class="table-responsive">
-    <table class="table table-bordered table-hover align-middle">
-      <thead class="table-light">
+    <table class="table table-borderless table-hover align-middle shadow-sm">
+      <thead class="table-light shadow-sm">
         <tr>
           <th>Nome</th>
           <th>Categoria</th>
@@ -93,12 +97,14 @@
           <td><a href="{{ projeto.link }}" target="_blank">Abrir</a></td>
           <td>{{ projeto.ordem }}</td>
           <td>
-            <a href="{{ url_for('admin.move_projeto', id=projeto.id, direction='up') }}"
-               class="btn btn-sm btn-secondary" aria-label="Mover para cima projeto {{ projeto.nome }}">↑</a>
-            <a href="{{ url_for('admin.move_projeto', id=projeto.id, direction='down') }}"
-               class="btn btn-sm btn-secondary" aria-label="Mover para baixo projeto {{ projeto.nome }}">↓</a>
-            <a href="{{ url_for('admin.editar_projeto', id=projeto.id) }}" class="btn btn-sm btn-warning" aria-label="Editar projeto {{ projeto.nome }}">Editar</a>
-            <a href="{{ url_for('admin.excluir_projeto', id=projeto.id) }}" class="btn btn-sm btn-danger" aria-label="Excluir projeto {{ projeto.nome }}" onclick="return confirm('Tem certeza?')">Excluir</a>
+            <div class="d-flex gap-2">
+              <a href="{{ url_for('admin.move_projeto', id=projeto.id, direction='up') }}"
+                 class="btn btn-sm btn-secondary rounded-circle" aria-label="Mover para cima projeto {{ projeto.nome }}">↑</a>
+              <a href="{{ url_for('admin.move_projeto', id=projeto.id, direction='down') }}"
+                 class="btn btn-sm btn-secondary rounded-circle" aria-label="Mover para baixo projeto {{ projeto.nome }}">↓</a>
+              <a href="{{ url_for('admin.editar_projeto', id=projeto.id) }}" class="btn btn-sm btn-warning rounded-pill" aria-label="Editar projeto {{ projeto.nome }}">Editar</a>
+              <a href="{{ url_for('admin.excluir_projeto', id=projeto.id) }}" class="btn btn-sm btn-danger rounded-pill" aria-label="Excluir projeto {{ projeto.nome }}" onclick="return confirm('Tem certeza?')">Excluir</a>
+            </div>
           </td>
         </tr>
         {% else %}

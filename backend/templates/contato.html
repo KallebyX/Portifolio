@@ -8,13 +8,13 @@
       <div class="card p-4 shadow border-0 h-100">
         <h5 class="mb-4 text-secondary">Redes e Plataformas</h5>
         <ul class="list-unstyled fs-6">
-          <li class="mb-3"><a class="text-decoration-none text-dark" href="https://wa.me/5555991255935" target="_blank"><i class="fab fa-whatsapp text-success me-2"></i>WhatsApp</a></li>
-          <li class="mb-3"><a class="text-decoration-none text-dark" href="https://www.instagram.com/kallebyevangelho" target="_blank"><i class="fab fa-instagram text-danger me-2"></i>Instagram</a></li>
-          <li class="mb-3"><a class="text-decoration-none text-dark" href="https://github.com/KallebyX" target="_blank"><i class="fab fa-github me-2"></i>GitHub</a></li>
-          <li class="mb-3"><a class="text-decoration-none text-dark" href="https://www.linkedin.com/in/kalleby-evangelho/" target="_blank"><i class="fab fa-linkedin me-2"></i>LinkedIn</a></li>
-          <li class="mb-3"><a class="text-decoration-none text-dark" href="http://lattes.cnpq.br/8152266941105091" target="_blank"><i class="fas fa-user-graduate me-2"></i>Lattes</a></li>
-          <li class="mb-3"><a class="text-decoration-none text-dark" href="https://orcid.org/0009-0005-9156-0701" target="_blank"><i class="fas fa-id-card me-2"></i>ORCID</a></li>
-          <li class="mb-3"><a class="text-decoration-none text-dark" href="mailto:kallebyevangelho03@gmail.com"><i class="fas fa-envelope me-2"></i>kallebyevangelho03@gmail.com</a></li>
+          <li class="mb-3"><a class="text-decoration-none text-dark" href="https://wa.me/5555991255935" target="_blank" aria-label="Conversar no WhatsApp com Kalleby Evangelho"><i class="fab fa-whatsapp text-success me-2"></i>WhatsApp</a></li>
+          <li class="mb-3"><a class="text-decoration-none text-dark" href="https://www.instagram.com/kallebyevangelho" target="_blank" aria-label="Visitar Instagram de Kalleby Evangelho"><i class="fab fa-instagram text-danger me-2"></i>Instagram</a></li>
+          <li class="mb-3"><a class="text-decoration-none text-dark" href="https://github.com/KallebyX" target="_blank" aria-label="Visitar GitHub de Kalleby Evangelho"><i class="fab fa-github me-2"></i>GitHub</a></li>
+          <li class="mb-3"><a class="text-decoration-none text-dark" href="https://www.linkedin.com/in/kalleby-evangelho/" target="_blank" aria-label="Visitar LinkedIn de Kalleby Evangelho"><i class="fab fa-linkedin me-2"></i>LinkedIn</a></li>
+          <li class="mb-3"><a class="text-decoration-none text-dark" href="http://lattes.cnpq.br/8152266941105091" target="_blank" aria-label="Visitar Lattes de Kalleby Evangelho"><i class="fas fa-user-graduate me-2"></i>Lattes</a></li>
+          <li class="mb-3"><a class="text-decoration-none text-dark" href="https://orcid.org/0009-0005-9156-0701" target="_blank" aria-label="Visitar ORCID de Kalleby Evangelho"><i class="fas fa-id-card me-2"></i>ORCID</a></li>
+          <li class="mb-3"><a class="text-decoration-none text-dark" href="mailto:kallebyevangelho03@gmail.com" aria-label="Enviar email para Kalleby Evangelho"><i class="fas fa-envelope me-2"></i>kallebyevangelho03@gmail.com</a></li>
         </ul>
       </div>
     </div>
@@ -23,19 +23,21 @@
       <div class="card p-4 shadow border-0 h-100">
         <h5 class="mb-4 text-secondary">Envie uma mensagem rápida</h5>
         <form method="POST" action="/enviar-formulario">
-          <div class="mb-3">
+          <div class="mb-3" data-aos="fade-up">
             <label for="nome" class="form-label fw-semibold">Nome</label>
-            <input type="text" class="form-control" id="nome" name="nome" required>
+            <input type="text" class="form-control" id="nome" name="nome" required placeholder="Digite seu nome completo...">
           </div>
-          <div class="mb-3">
+          <div class="mb-3" data-aos="fade-up">
             <label for="email" class="form-label fw-semibold">Email</label>
-            <input type="email" class="form-control" id="email" name="email" required>
+            <input type="email" class="form-control" id="email" name="email" required placeholder="Digite seu e-mail para contato...">
           </div>
-          <div class="mb-3">
+          <div class="mb-3" data-aos="fade-up">
             <label for="mensagem" class="form-label fw-semibold">Mensagem</label>
-            <textarea class="form-control" id="mensagem" name="problema" rows="5" required></textarea>
+            <textarea class="form-control" id="mensagem" name="mensagem" rows="5" required placeholder="Digite sua mensagem..."></textarea>
           </div>
-          <button type="submit" class="btn btn-primary btn-lg w-100">Enviar Mensagem</button>
+          <button type="submit" class="btn btn-primary btn-lg w-100">
+            <i class="fas fa-paper-plane me-2"></i>Enviar Mensagem
+          </button>
         </form>
       </div>
     </div>
@@ -54,7 +56,10 @@
         <p class="mb-0">Obrigado por entrar em contato. Em breve responderei sua mensagem!</p>
       </div>
       <div class="modal-footer justify-content-center">
-        <a href="/" class="btn btn-outline-success">Voltar ao início</a>
+        <div class="d-flex flex-column flex-md-row gap-3">
+          <a href="/" class="btn btn-outline-success">Voltar ao início</a>
+          <a href="/contato" class="btn btn-success">Enviar outra mensagem</a>
+        </div>
       </div>
     </div>
   </div>

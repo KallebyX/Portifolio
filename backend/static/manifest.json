@@ -4,7 +4,7 @@
     "start_url": "/",
     "display": "standalone",
     "background_color": "#121212",
-    "theme_color": "#007bff",
+    "theme_color": "#041C32",
     "description": "Portfólio oficial de Kalleby Evangelho: inovação, tecnologia assistiva e IA aplicada à saúde e educação.",
     "icons": [
       {
@@ -16,6 +16,20 @@
         "src": "/static/img/icon-512.png",
         "sizes": "512x512",
         "type": "image/png"
+      }
+    ],
+    "shortcuts": [
+      {
+        "name": "Ver Projetos",
+        "short_name": "Projetos",
+        "description": "Veja projetos desenvolvidos por Kalleby Evangelho",
+        "url": "/projetos.html"
+      },
+      {
+        "name": "Contato",
+        "short_name": "Contato",
+        "description": "Entre em contato com Kalleby Evangelho",
+        "url": "/contato.html"
       }
     ],
     "lang": "pt-BR",

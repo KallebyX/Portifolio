@@ -1,20 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;800&family=Poppins:wght@300;400&display=swap');
 
 :root {
     --bg-light: #f8f9fa;
     --bg-dark: #121212;
     --text-light: #212529;
     --text-dark: #f1f1f1;
-    --primary: #007bff;
+    --primary: #00E5FF;
+    --azul-profundo: #0A1F44;
+    --ciano-luminoso: #00E5FF;
+    --dourado-suave: #FFD580;
+    --tipografia-titulo: 'Rajdhani', sans-serif;
+    --tipografia-base: 'Poppins', sans-serif;
 }
 
 body {
-    font-family: 'Nunito', sans-serif;
+    font-family: var(--tipografia-base);
     scroll-behavior: smooth;
     background-color: var(--bg-light);
     color: var(--text-light);
     transition: background-color 0.4s ease, color 0.4s ease;
-    font-size: 1.125rem; /* Aumentado de 1rem para 1.125rem (18px) */
+    font-size: 1.125rem;
     line-height: 1.8;
 }
 
@@ -23,8 +28,9 @@ body.dark-mode {
     color: var(--text-dark) !important;
 }
 
-/* Textos */
+/* Headings */
 h1, h2, h3, h4, h5, h6 {
+    font-family: var(--tipografia-titulo);
     font-weight: 700;
     letter-spacing: -0.25px;
 }
@@ -40,20 +46,18 @@ body.dark-mode h6 {
 
 /* Links */
 a {
-    transition: color 0.3s ease;
+    color: var(--azul-profundo);
+    transition: color 0.3s ease, text-decoration 0.3s ease;
     text-decoration: none;
 }
-
 a:hover {
+    color: var(--ciano-luminoso);
     text-decoration: underline;
-    opacity: 0.85;
-    transition: opacity 0.3s ease;
+    opacity: 1;
 }
-
 body.dark-mode a {
     color: #66d9e8 !important;
 }
-
 body.dark-mode a:hover {
     color: #90e0ff !important;
     text-decoration: underline;
@@ -61,19 +65,71 @@ body.dark-mode a:hover {
 
 /* Navbar */
 .navbar {
-    transition: background-color 0.4s ease;
+    background-color: rgba(255,255,255,0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: background-color 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
 }
+
+.profile-photo {
+  display: block;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--ciano-luminoso);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
 
 body.dark-mode .navbar {
-    background-color: #1e1e1e !important;
+    background-color: rgba(18,18,18,0.8) !important;
+    box-shadow: 0 2px 10px rgba(255,255,255,0.05);
+}
+.navbar-shrink {
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+body.dark-mode .navbar-shrink {
+    box-shadow: 0 2px 12px rgba(255,255,255,0.1);
+}
+.navbar-brand {
+    color: var(--ciano-luminoso) !important;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    transition: color 0.3s ease;
+}
+.navbar-brand:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+body.dark-mode .navbar-brand {
+    color: var(--ciano-luminoso) !important;
+}
+.nav-link {
+    text-decoration: none !important;
+    transition: color 0.3s ease, border-color 0.3s ease;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+.nav-link:hover {
+    color: var(--primary);
+}
+.nav-link.active {
+    color: var(--primary) !important;
+    font-weight: 700;
+    position: relative;
+}
+body.dark-mode .nav-link {
     color: #f1f1f1 !important;
 }
-
-body.dark-mode .navbar .nav-link {
-    color: #f1f1f1 !important;
+body.dark-mode .nav-link:hover {
+    color: #66d9e8 !important;
 }
-
-body.dark-mode .navbar .nav-link:hover {
+body.dark-mode .nav-link.active {
     color: #66d9e8 !important;
 }
 
@@ -82,48 +138,60 @@ body.dark-mode .navbar .nav-link:hover {
     border: none;
     border-radius: 1rem;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
 }
-
 .card:hover {
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
-  transform: translateY(-5px) scale(1.02);
-  transition: all 0.3s ease;
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.12);
 }
-
 body.dark-mode .card {
     background-color: #1e1e1e !important;
     color: #f1f1f1 !important;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05) !important;
+    box-shadow: 0 0 10px rgba(255,255,255,0.05) !important;
 }
-
 body.dark-mode .card:hover {
-  box-shadow: 0 12px 20px rgba(255, 255, 255, 0.08);
-  background-color: #2e2e2e !important;
-  transform: translateY(-5px) scale(1.02);
+    background-color: #2e2e2e !important;
+    box-shadow: 0 8px 16px rgba(255,255,255,0.08);
 }
 
-body.dark-mode .card-body {
-    background-color: #1e1e1e !important;
-    color: #f1f1f1 !important;
+/* Project Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    gap: 2rem;
+}
+@media (max-width: 575.98px) {
+    .projects-grid {
+        gap: 1.5rem;
+    }
 }
 
-/* Botões */
+/* Buttons */
 .btn, .btn-primary, .btn-outline-primary {
     border-radius: 1.5rem;
     padding: 10px 20px;
     font-weight: 600;
     transition: all 0.3s ease;
     text-decoration: none !important;
-    text-transform: none;
     letter-spacing: 0.5px;
 }
-
+.btn-primary {
+    background-color: var(--ciano-luminoso) !important;
+    border-color: var(--ciano-luminoso) !important;
+    color: #fff !important;
+}
+.btn-outline-primary {
+    border-color: var(--ciano-luminoso) !important;
+    color: var(--ciano-luminoso) !important;
+}
+.btn-outline-primary:hover {
+    background-color: var(--ciano-luminoso) !important;
+    color: var(--bg-dark) !important;
+}
 .btn:hover, .btn-primary:hover, .btn-outline-primary:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+    box-shadow: 0 4px 10px rgba(0,229,255,0.3);
 }
-
 body.dark-mode .btn,
 body.dark-mode .btn-primary,
 body.dark-mode .btn-outline-primary {
@@ -131,87 +199,151 @@ body.dark-mode .btn-outline-primary {
     color: #f1f1f1 !important;
     border-color: #66d9e8 !important;
 }
-
 body.dark-mode .btn:hover,
 body.dark-mode .btn-primary:hover,
 body.dark-mode .btn-outline-primary:hover {
     background-color: #66d9e8 !important;
     color: #121212 !important;
     border-color: #66d9e8 !important;
-    box-shadow: 0 4px 10px rgba(102, 217, 232, 0.3);
+    box-shadow: 0 4px 10px rgba(102,217,232,0.3);
+}
+
+/* Inputs, Selects e Textareas */
+input, textarea, select {
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
+    font-size: 1.125rem;
     transition: all 0.3s ease;
 }
-
-/* Inputs, Selects e Textareas refinados */
-input, textarea, select {
-  background-color: #fff;
-  border: 1px solid #ced4da;
-  border-radius: 0.75rem;
-  padding: 0.75rem 1rem;
-  font-size: 1.125rem;
-  transition: all 0.3s ease;
-}
-
 input:focus, textarea:focus, select:focus {
-  border-color: #007bff;
-  outline: none;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    border-color: var(--ciano-luminoso);
+    box-shadow: 0 0 0 0.2rem rgba(0,229,255,0.25);
+    outline: none;
 }
-
-/* Estilos para Dark Mode */
 body.dark-mode input,
 body.dark-mode textarea,
 body.dark-mode select {
-  background-color: #2a2a2a !important;
-  color: #f1f1f1 !important;
-  border: 1px solid #444 !important;
+    background-color: #2a2a2a !important;
+    color: #f1f1f1 !important;
+    border: 1px solid #444 !important;
 }
-
 body.dark-mode input::placeholder,
 body.dark-mode textarea::placeholder,
 body.dark-mode select::placeholder {
-  color: #aaa !important;
+    color: #aaa !important;
 }
-
 body.dark-mode input:focus,
 body.dark-mode textarea:focus,
 body.dark-mode select:focus {
-  background-color: #2a2a2a !important;
-  color: #fff !important;
-  border-color: #66d9e8 !important;
-  box-shadow: 0 0 0 0.2rem rgba(102, 217, 232, 0.25) !important;
+    background-color: #2a2a2a !important;
+    color: #fff !important;
+    border-color: var(--ciano-luminoso) !important;
+    box-shadow: 0 0 0 0.2rem rgba(0,229,255,0.25) !important;
 }
 
-/* Modais */
+/* Modal */
 body.dark-mode .modal-content {
     background-color: #1e1e1e !important;
     color: #f1f1f1 !important;
 }
-
 body.dark-mode .modal-header,
 body.dark-mode .modal-footer {
     border-color: #333 !important;
 }
 
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(to right, var(--azul-profundo), var(--ciano-luminoso));
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    transition: background 0.4s ease;
+}
+
+/* Section Trajetória with gradient background */
+.section-trajectory {
+    background: linear-gradient(135deg, var(--azul-profundo) 0%, var(--ciano-luminoso) 100%);
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+body.dark-mode .section-trajectory {
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-dark) 100%) !important;
+}
+
+/* Section Light */
+.section-light {
+    background-color: #f1f3f5;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+body.dark-mode .section-light {
+    background-color: #1e1e1e !important;
+}
+.section-light .card {
+    background-color: #ffffff;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+body.dark-mode .section-light .card {
+    background-color: #1e1e1e !important;
+    color: #f1f1f1 !important;
+    border: 1px solid #333 !important;
+    box-shadow: 0 2px 8px rgba(255,255,255,0.03) !important;
+}
+body.dark-mode .section-light .card:hover {
+    background-color: #2a2a2a !important;
+    border-color: #555 !important;
+    box-shadow: 0 4px 12px rgba(255,255,255,0.08) !important;
+    transform: translateY(-3px);
+}
+
+/* Section Dark (Áreas de Atuação) */
+.section-dark {
+    background-color: var(--azul-profundo);
+    color: #fff;
+}
+/* Cards in dark section */
+.section-dark .card {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border: none;
+}
+.section-dark .card .card-body h5,
+.section-dark .card .card-body p {
+    color: #fff !important;
+}
+body.dark-mode .section-dark {
+    background-color: var(--bg-dark) !important;
+    color: var(--text-light) !important;
+}
+
+/* Section Divider */
+hr.border-primary {
+    border-top: 1px solid var(--primary);
+}
+body.dark-mode hr.border-primary {
+    border-top: 1px solid var(--ciano-luminoso) !important;
+}
+
+/* Muted white text for dark backgrounds */
+.text-white-50 {
+    color: rgba(255,255,255,0.5) !important;
+}
+
 /* Footer */
 footer {
     font-size: 0.9rem;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
 }
-
 footer a:hover {
-  color: #007bff;
-  text-decoration: underline;
-  transition: color 0.3s ease;
+    color: var(--ciano-luminoso);
+    text-decoration: underline;
 }
-
 body.dark-mode footer {
     background-color: #1a1a1a !important;
     color: #ccc !important;
 }
-
 body.dark-mode footer a:hover {
-  color: #66d9e8 !important;
+    color: var(--ciano-luminoso) !important;
 }
 
 /* List Groups */
@@ -221,21 +353,21 @@ body.dark-mode .list-group-item {
     border-color: #444 !important;
 }
 
-/* Textos padrão Bootstrap adaptados */
+/* Text Utilities */
 body.dark-mode .text-danger { color: #ff6b6b !important; }
-body.dark-mode .text-muted { color: #cccccc !important; opacity: 1 !important; }
+body.dark-mode .text-muted { color: #cccccc !important; opacity: 0.8; }
 body.dark-mode .text-primary { color: #66d9e8 !important; }
 body.dark-mode .text-success { color: #51cf66 !important; }
 body.dark-mode .text-warning { color: #ffe066 !important; }
 body.dark-mode .text-info { color: #66d9e8 !important; }
 body.dark-mode .text-secondary { color: #b0b0b0 !important; }
 
-/* Botão de Troca de Tema */
+/* Toggle Theme Button */
 .toggle-theme {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #007bff;
+    background-color: var(--ciano-luminoso);
     color: white;
     border: none;
     border-radius: 50%;
@@ -243,488 +375,501 @@ body.dark-mode .text-secondary { color: #b0b0b0 !important; }
     height: 50px;
     font-size: 1.5rem;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     transition: background-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
-    text-decoration: none !important;
 }
-
 .toggle-theme:hover {
-    background-color: #66d9e8;
+    background-color: var(--dourado-suave);
     transform: rotate(360deg) scale(1.1);
-    box-shadow: 0 8px 20px rgba(102, 217, 232, 0.5);
+    box-shadow: 0 8px 20px rgba(0,229,255,0.5);
+    filter: brightness(1.1);
 }
 
-/* Hero Section Ajustado para Dark Mode */
-.hero-section {
-  background: linear-gradient(to right, #007bff, #00c6ff);
-  min-height: 100vh;
-  transition: background 0.4s ease;
-}
-
-body.dark-mode .hero-section {
-  background: linear-gradient(to right, #0a3d62, #3c6382) !important;
-}
-
-/* Section Trajetória Ajustado para Dark Mode */
-.section-trajectory {
-  background-color: #f8f9fa;
-  border-radius: 1rem;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-  transition: background-color 0.4s ease, box-shadow 0.4s ease;
-}
-
-body.dark-mode .section-trajectory {
-  background-color: #1e1e1e !important;
-  box-shadow: 0 0 10px rgba(255,255,255,0.05) !important;
-}
-
-body.dark-mode .section-trajectory .card {
-  background-color: #2a2a2a !important;
-  color: #f1f1f1 !important;
-  box-shadow: 0 0 8px rgba(255,255,255,0.03) !important;
-}
-
-/* Section Trajetória com fundo igual ao Hero Section */
-.section-trajectory {
-  background: linear-gradient(to right, #007bff, #00c6ff);
-  border-radius: 1rem;
-  padding: 3rem 1rem;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  transition: background 0.4s ease, box-shadow 0.4s ease;
-}
-
-body.dark-mode .section-trajectory {
-  background: linear-gradient(to right, #0a3d62, #3c6382) !important;
-  box-shadow: 0 0 10px rgba(255,255,255,0.05) !important;
-}
-
-/* Cards dentro da Trajetória no Dark Mode */
-body.dark-mode .section-trajectory .card {
-  background-color: #2a2a2a !important;
-  color: #f1f1f1 !important;
-  box-shadow: 0 0 8px rgba(255,255,255,0.03) !important;
-}
-/* Section Light Ajustado */
-.section-light {
-  background-color: #f1f3f5;
-  transition: background-color 0.4s ease, color 0.4s ease;
-}
-
-body.dark-mode .section-light {
-  background-color: #1e1e1e !important;
-}
-
-/* Ajuste extra para os cards dentro das seções light */
-.section-light .card {
-  background-color: #ffffff;
-  transition: background-color 0.4s ease, color 0.4s ease;
-}
-
-body.dark-mode .section-light .card {
-  background-color: #1e1e1e !important;
-  color: #f1f1f1 !important;
-  border: 1px solid #333 !important;
-  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.03) !important;
-  transition: all 0.3s ease;
-}
-
-body.dark-mode .section-light .card:hover {
-  background-color: #2a2a2a !important;
-  border-color: #555 !important;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08) !important;
-  transform: translateY(-3px);
-}
-/* Animações globais para entrada de elementos */
+/* Animations */
 .fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.5s forwards;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s forwards;
 }
-
 @keyframes fadeInUp {
-  to {
+    to { opacity: 1; transform: translateY(0); }
+}
+.zoom-in {
+    opacity: 0;
+    transform: scale(0.95);
+    animation: zoomIn 0.5s forwards;
+}
+@keyframes zoomIn {
+    to { opacity: 1; transform: scale(1); }
+}
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease;
+}
+.reveal.active {
     opacity: 1;
     transform: translateY(0);
-  }
 }
 
-.zoom-in {
-  opacity: 0;
-  transform: scale(0.95);
-  animation: zoomIn 0.5s forwards;
-}
-
-@keyframes zoomIn {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Aplicação automática para todos os .card e .section-light em page load */
-.card, .section-light {
-  animation: fadeInUp 0.5s ease forwards;
-}
-
-/* Ajustar para evitar conflitos de múltiplas animações ao mesmo tempo */
-.card:hover, .btn:hover {
-  animation: none;
-}
-/* Correção para nav-link */
-.nav-link {
-  text-decoration: none !important;
-  transition: color 0.3s ease;
-  font-weight: 500;
-  letter-spacing: 0.3px;
-}
-
-.nav-link:hover {
-  text-decoration: none !important;
-  color: var(--primary);
-}
-
-body.dark-mode .nav-link {
-  color: #f1f1f1 !important;
-  text-decoration: none !important;
-}
-
-body.dark-mode .nav-link:hover {
-  color: #66d9e8 !important;
-  text-decoration: none !important;
-}
-
-/* Animação de entrada para o botão de troca de tema */
-.toggle-theme {
-  opacity: 0;
-  transform: scale(0.8);
-  animation: fadeInButton 0.5s forwards 0.3s;
-}
-
-@keyframes fadeInButton {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Nova animação suave ao rolar para seções */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.5s ease;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-. /* Ajuste refinado para headings */
-. /* Ajuste refinado para headings */
-h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-}
-
-h2 {
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-h3 {
-  font-size: 1.75rem;
-  font-weight: 700;
-}
-
-h4 {
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-h5 {
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-/* Ajuste refinado para headings */
-h6 {
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-/* Refinamento para parágrafos e textos auxiliares */
-p {
-  font-size: 1.125rem;
-  line-height: 1.8;
-  margin-bottom: 1rem;
-}
-
-.text-muted {
-  color: #6c757d;
-  opacity: 0.8;
-}
-
-body.dark-mode p {
-  color: #f1f1f1;
-}
-
-body.dark-mode .text-muted {
-  color: #cccccc !important;
-  opacity: 0.8 !important;
-}
-/* Melhorias visuais para foco de inputs, selects e textareas */
-input:focus, textarea:focus, select:focus {
-  transform: translateY(-2px);
-  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
-  border-color: #007bff;
-  outline: none;
-  transition: all 0.3s ease;
-}
-
-/* Foco no Dark Mode */
-body.dark-mode input:focus,
-body.dark-mode textarea:focus,
-body.dark-mode select:focus {
-  transform: translateY(-2px);
-  box-shadow: 0 0 8px rgba(102, 217, 232, 0.3);
-  border-color: #66d9e8;
-  background-color: #2a2a2a;
-  color: #f1f1f1;
-}
-/* Navbar transparente com blur elegante */
-.navbar {
-  background-color: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  transition: background-color 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
-}
-
-body.dark-mode .navbar {
-  background-color: rgba(18, 18, 18, 0.8) !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
-}
-/* Link ativo da Navbar */
-.nav-link.active {
-  color: #007bff !important;
-  font-weight: 700;
-  position: relative;
-}
-
-body.dark-mode .nav-link.active {
-  color: #66d9e8 !important;
-  font-weight: 700;
-}
-
-/* Pequena animação de realce no hover e active */
-.nav-link:hover,
-.nav-link.active {
-  transition: color 0.3s ease, border-color 0.3s ease;
-}
-
-/* Cor fixa para a marca da navbar (ex: "Kalleby Evangelho") */
-.navbar-brand {
-  color: #007bff !important;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  transition: color 0.3s ease;
-}
-
-body.dark-mode .navbar-brand {
-  color: #66d9e8 !important;
-}
-
-/* Animação hover para a marca (Kalleby Evangelho) */
-.navbar-brand:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-. /* Navbar Shrink Effect */
-.navbar {
-  transition: all 0.4s ease;
-}
-
-.navbar-shrink {
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-}
-
-body.dark-mode .navbar-shrink {
-  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.1);
-}
-
-/* Ajustes de responsividade geral */
-
-/* Para telas médias (tablet landscape) */
-@media (max-width: 991.98px) {
-  .navbar {
-    padding-top: 0.4rem;
-    padding-bottom: 0.4rem;
-  }
-
-  .navbar-shrink {
-    padding-top: 0.3rem;
-    padding-bottom: 0.3rem;
-  }
-
-  .hero-section {
-    min-height: 80vh;
-  }
-
-  .toggle-theme {
-    width: 45px;
-    height: 45px;
-    font-size: 1.3rem;
-  }
-}
-
-/* Para telas pequenas (tablet portrait e smartphones grandes) */
+/* Responsive tweaks */
 @media (max-width: 767.98px) {
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.75rem;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-  }
-
-  .navbar {
-    padding-top: 0.3rem;
-    padding-bottom: 0.3rem;
-  }
-
-  .toggle-theme {
-    width: 42px;
-    height: 42px;
-    font-size: 1.2rem;
-  }
-
-  .card {
-    padding: 1.5rem;
-  }
-
-  .section-trajectory {
-    padding: 2rem 1rem;
-  }
+    .hero-section {
+        min-height: 90vh;
+        padding-top: 3rem;
+    }
+    .about-preview .container,
+    .destaques .container,
+    .section-light .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    footer {
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+        text-align: center;
+    }
 }
 
-/* Para smartphones menores */
-@media (max-width: 575.98px) {
-  h1 {
-    font-size: 1.75rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  h3 {
-    font-size: 1.25rem;
-  }
-
-  .toggle-theme {
-    width: 40px;
-    height: 40px;
-    font-size: 1.1rem;
-  }
-
-  footer {
-    font-size: 0.8rem;
-    padding-top: 0.8rem;
-    padding-bottom: 0.8rem;
-  }
+/* Responsive */
+@media (max-width: 991.98px) {
+    .navbar { padding-top: 0.4rem; padding-bottom: 0.4rem; }
+    .navbar-shrink { padding-top: 0.3rem; padding-bottom: 0.3rem; }
+    .hero-section { min-height: 80vh; }
 }
 
-/* Fade out suave entre páginas */
-.fade-out {
-  animation: fadeOut 0.5s forwards;
+/* About Preview (Quem é Kalleby?) */
+.about-preview {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+.about-preview .container {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.about-preview .profile-photo {
+    display: block;
+    margin: 0 auto;
+    /* keep existing dimensions and styles */
+}
+@media (max-width: 767.98px) {
+    .about-preview .row.align-items-center {
+        flex-direction: column;
+    }
+    .about-preview .col-md-6 {
+        width: 100%;
+        text-align: center !important;
+        margin-bottom: 2rem;
+    }
 }
 
-@keyframes fadeOut {
-  to {
-    opacity: 0;
-    transform: translateY(10px);
-  }
+/* Increase horizontal spacing between text and image in the About Preview */
+@media (min-width: 768px) {
+    .about-preview .row.align-items-center .col-md-6:first-child {
+        padding-right: 2rem;
+    }
+    .about-preview .row.align-items-center .col-md-6:last-child {
+        padding-left: 2rem;
+    }
 }
 
-/* Ajuste no Hero Section para parallax leve */
-.hero-section {
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center center;
-}
 
-/* Responsividade refinada para cards de projetos */
-.project-card {
-  padding: 1.5rem;
-  border-radius: 1rem;
-  transition: all 0.3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}
-
-/* Ajustes de grid para projetos responsivos */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-}
-
-/* Responsividade extra para projetos em telas pequenas */
-@media (max-width: 575.98px) {
-  .projects-grid {
-    gap: 1.5rem;
-  }
-}
-
-/* Melhorias de responsividade para filtros de projetos */
-@media (max-width: 575.98px) {
-  .btn-group {
+/* Section Trajetória layout */
+.section-trajectory .row {
     display: flex;
     flex-wrap: wrap;
+    gap: 2rem;
     justify-content: center;
-    gap: 0.5rem;
-  }
-
-  .btn-group .btn {
-    flex: 1 1 auto;
-    min-width: 120px;
-  }
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
-/* Barra de progresso do formulário */
-.progress-container {
-  width: 100%;
-  background-color: #e9ecef;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  height: 0.75rem;
+.section-trajectory .col-md-6 {
+    flex: 1 1 500px;
 }
-.progress-bar {
-  width: 0;
-  height: 100%;
-  background-color: var(--primary);
-  transition: width 0.3s ease;
+@media (max-width: 767.98px) {
+    .section-trajectory .col-md-6 {
+        flex: 1 1 100%;
+    }
 }
 
-/* Responsividade do formulário */
-.multi-step {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  box-sizing: border-box;
+/* Section Trajetória gradient and layout */
+.section-trajectory {
+    background: linear-gradient(135deg, var(--azul-profundo) 0%, var(--ciano-luminoso) 100%);
+    padding: 4rem 0;
+}
+body.dark-mode .section-trajectory {
+    background: var(--bg-dark) !important;
 }
 
+/* Card-based timeline entries */
+.timeline-card {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-left: 4px solid var(--ciano-luminoso);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+.timeline-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 229, 255, 0.2);
+}
+.timeline-card .timeline-date {
+    display: inline-block;
+    background: var(--ciano-luminoso);
+    color: #fff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+.timeline-card p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-light);
+}
 
-/* Formulário multistep: sempre visível, sem hover */
-#formularioMultiStep .multi-step {
-  display: block !important;
+/* Dark mode overrides */
+body.dark-mode .timeline-card {
+    background: #151515 !important;
+    border: 1px solid rgba(102, 217, 232, 0.3) !important;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05) !important;
+}
+body.dark-mode .timeline-card:hover {
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.1) !important;
+}
+body.dark-mode .timeline-card .timeline-date {
+    background: var(--dourado-suave) !important;
+    color: var(--bg-dark) !important;
+}
+body.dark-mode .timeline-card p {
+    color: var(--text-dark) !important;
+}
+
+img {
+    object-fit: contain;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+body.dark-mode img {
+    background-color: #1e1e1e;
+}
+
+@media (max-width: 767.98px) {
+    img {
+        padding: 0.25rem;
+    }
+}
+/* Admin Painel - Ajustes Visuais */
+.contact-form-card {
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s ease;
+}
+body.dark-mode .contact-form-card {
+    background-color: #1e1e1e !important;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08) !important;
+}
+
+.contact-form-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 229, 255, 0.2);
+}
+
+/* Tabelas Admin */
+.table {
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 229, 255, 0.05);
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode .table-hover tbody tr:hover {
+    background-color: rgba(255, 213, 128, 0.08);
+}
+
+/* Botões Admin */
+.btn-admin-action {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* =========================
+   Refinamentos editar_projeto.html
+   ========================= */
+.contact-form-card input,
+.contact-form-card textarea,
+.contact-form-card select {
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
+    font-size: 1.125rem;
+    transition: all 0.3s ease;
+}
+
+.contact-form-card input:focus,
+.contact-form-card textarea:focus,
+.contact-form-card select:focus {
+    border-color: var(--ciano-luminoso);
+    box-shadow: 0 0 0 0.2rem rgba(0,229,255,0.25);
+    outline: none;
+}
+body.dark-mode .contact-form-card input,
+body.dark-mode .contact-form-card textarea,
+body.dark-mode .contact-form-card select {
+    background-color: #2a2a2a !important;
+    color: #f1f1f1 !important;
+    border: 1px solid #444 !important;
+}
+body.dark-mode .contact-form-card input::placeholder,
+body.dark-mode .contact-form-card textarea::placeholder,
+body.dark-mode .contact-form-card select::placeholder {
+    color: #aaa !important;
+}
+body.dark-mode .contact-form-card input:focus,
+body.dark-mode .contact-form-card textarea:focus,
+body.dark-mode .contact-form-card select:focus {
+    background-color: #2a2a2a !important;
+    color: #fff !important;
+    border-color: var(--ciano-luminoso) !important;
+    box-shadow: 0 0 0 0.2rem rgba(0,229,255,0.25) !important;
+}
+
+.contact-form-card .btn {
+    border-radius: 1.5rem;
+    padding: 10px 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+.contact-form-card .btn-primary {
+    background-color: var(--ciano-luminoso) !important;
+    border-color: var(--ciano-luminoso) !important;
+    color: #fff !important;
+}
+.contact-form-card .btn-secondary {
+    background-color: #dee2e6 !important;
+    border-color: #ced4da !important;
+    color: #212529 !important;
+}
+.contact-form-card .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0,229,255,0.3);
+}
+body.dark-mode .contact-form-card .btn-secondary {
+    background-color: #333 !important;
+    border-color: #444 !important;
+    color: #f1f1f1 !important;
+}
+}
+/* Página 404 Ajustes */
+.page-404 {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 2rem;
+}
+.page-404 h1 {
+    font-size: 6rem;
+    font-weight: 800;
+    color: var(--azul-profundo);
+}
+.page-404 p {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+body.dark-mode .page-404 h1 {
+    color: var(--ciano-luminoso) !important;
+}
+
+/* Página Offline Ajustes */
+.offline-page {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, var(--azul-profundo), var(--ciano-luminoso));
+    color: #fff;
+}
+
+.offline-page h1 {
+    font-size: 6rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.offline-page p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+body.dark-mode .offline-page {
+    background: var(--bg-dark) !important;
+    color: var(--text-light) !important;
+}
+
+/* Artigos e Pesquisas Section */
+.articles-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.articles-section .card {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s ease, transform 0.3s ease;
+}
+
+.articles-section .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 229, 255, 0.2);
+}
+
+.articles-section .card h5 {
+    font-family: var(--tipografia-titulo);
+    font-weight: 700;
+    color: var(--azul-profundo);
+}
+
+.articles-section .card p {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-top: 0.5rem;
+}
+
+body.dark-mode .articles-section .card {
+    background-color: #1e1e1e !important;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05) !important;
+}
+
+body.dark-mode .articles-section .card:hover {
+    background-color: #2a2a2a !important;
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark-mode .articles-section .card h5 {
+    color: var(--ciano-luminoso) !important;
+}
+
+body.dark-mode .articles-section .card p {
+    color: var(--text-dark) !important;
+}
+/* Melhorias de Contraste no Dark Mode */
+
+/* Texto geral mais claro */
+body.dark-mode {
+    background-color: var(--bg-dark) !important;
+    color: #e0e0e0 !important;
+}
+
+/* Headings mais fortes */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+    color: #ffffff !important;
+}
+
+/* Links no dark mode */
+body.dark-mode a {
+    color: #66d9e8 !important;
+}
+body.dark-mode a:hover {
+    color: #90e0ff !important;
+    text-decoration: underline;
+}
+
+/* Navbar mais visível */
+body.dark-mode .navbar {
+    background-color: rgba(18, 18, 18, 0.95) !important;
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Botões Outline com borda e texto mais claros */
+body.dark-mode .btn,
+body.dark-mode .btn-primary,
+body.dark-mode .btn-outline-primary {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+    border-color: #66d9e8 !important;
+}
+
+/* Hover dos cards mais perceptível */
+body.dark-mode .card:hover {
+    background-color: #2e2e2e !important;
+    box-shadow: 0 8px 16px rgba(102, 217, 232, 0.15);
+}
+
+/* Inputs mais visíveis */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+    background-color: #2a2a2a !important;
+    color: #e0e0e0 !important;
+    border: 1px solid #666 !important;
+}
+
+/* Textos em páginas especiais */
+body.dark-mode .page-404 p,
+body.dark-mode .offline-page p,
+body.dark-mode .articles-section .card p {
+    color: #dddddd !important;
+}
+/* Melhorar cor do texto na seção Sobre e Trajetória */
+.section-trajectory h2,
+.section-trajectory p,
+.section-trajectory .lead {
+    color: #ffffff;
+}
+
+body.dark-mode .section-trajectory h2,
+body.dark-mode .section-trajectory p,
+body.dark-mode .section-trajectory .lead {
+    color: #e0e0e0;
+}
+.section-trajectory .timeline-card {
+    color: var(--text-light);
+}
+
+.section-trajectory .timeline-card p {
+    color: var(--text-light);
+}
+
+body.dark-mode .section-trajectory .timeline-card {
+    color: var(--text-dark);
+}
+
+body.dark-mode .section-trajectory .timeline-card p {
+    color: var(--text-dark);
 }
