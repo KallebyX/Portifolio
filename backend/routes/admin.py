@@ -67,24 +67,31 @@ def editar_projeto(id):
         projeto.link = request.form["link"]
         projeto.stack = request.form["stack"]
         projeto.ordem = int(request.form.get("ordem", projeto.ordem))
-
+        
         site_url = request.form.get("site", "")
         old_site = projeto.site
-        projeto.site = site_url  # Atualiza o site de qualquer forma
+        projeto.site = site_url
 
-        imagem_arquivo = request.files.get('imagem')
+        acao = request.form.get("acao", "")
 
-        if imagem_arquivo and imagem_arquivo.filename != '':
-            # Se o admin enviou nova imagem manualmente
-            filename = secure_filename(imagem_arquivo.filename)
-            image_url = upload_to_s3(imagem_arquivo, filename)
-            projeto.imagem = image_url
+        if acao == "gerar_screenshot":
+            # Gera uma nova screenshot manualmente
+            screenshot_url = capturar_screenshot(site_url, projeto.nome)
+            if screenshot_url:
+                projeto.imagem = screenshot_url
         else:
-            # Se não enviou imagem, mas o site mudou, captura nova screenshot
-            if site_url != old_site or not projeto.imagem:
-                screenshot_url = capturar_screenshot(site_url, projeto.nome)
-                if screenshot_url:
-                    projeto.imagem = screenshot_url
+            imagem_arquivo = request.files.get('imagem')
+            if imagem_arquivo and imagem_arquivo.filename != '':
+                # Se o admin enviou nova imagem manualmente
+                filename = secure_filename(imagem_arquivo.filename)
+                image_url = upload_to_s3(imagem_arquivo, filename)
+                projeto.imagem = image_url
+            else:
+                # Se não enviou imagem e mudou o site, gera nova screenshot automaticamente
+                if site_url != old_site or not projeto.imagem:
+                    screenshot_url = capturar_screenshot(site_url, projeto.nome)
+                    if screenshot_url:
+                        projeto.imagem = screenshot_url
 
         db.session.commit()
         flash("✏️ Projeto atualizado com sucesso!", "info")
