@@ -38,3 +38,30 @@ def pagina_nao_encontrada(error):
 @main.route('/download-curriculo')
 def download_curriculo():
     return send_from_directory('static/pdf', 'Kalleby_EvangelhoMota_currículo.pdf', as_attachment=True)
+
+
+from backend.utils.s3_upload import upload_to_s3
+
+from werkzeug.utils import secure_filename
+
+@main.route('/upload', methods=['GET', 'POST'])
+def upload_image():
+    if request.method == 'POST':
+        file = request.files['screenshot']
+        if file:
+            filename = secure_filename(file.filename)
+            image_url = upload_to_s3(file, filename)
+            return render_template('success.html', image_url=image_url)
+    return '''
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head><title>Upload de Imagem</title></head>
+    <body>
+        <h1>Fazer Upload da Imagem</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="screenshot">
+            <input type="submit" value="Enviar">
+        </form>
+    </body>
+    </html>
+    '''

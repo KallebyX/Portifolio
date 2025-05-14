@@ -4,6 +4,8 @@ from flask_login import login_required, current_user
 from backend.utils.screenshot import capturar_screenshot
 from backend.models import db, Projeto
 import os
+from backend.utils.s3_upload import upload_to_s3
+from werkzeug.utils import secure_filename
 
 admin = Blueprint('admin', __name__)
 
@@ -67,14 +69,22 @@ def editar_projeto(id):
         projeto.ordem = int(request.form.get("ordem", projeto.ordem))
 
         site_url = request.form.get("site", "")
+        old_site = projeto.site
         projeto.site = site_url  # Atualiza o site de qualquer forma
 
-        # Captura nova imagem se:
-        # - O site foi alterado
-        # - Ou não existe imagem cadastrada ainda
-        if site_url != projeto.site or not projeto.imagem:
-            screenshot_url = capturar_screenshot(site_url, projeto.nome)
-            projeto.imagem = screenshot_url
+        imagem_arquivo = request.files.get('imagem')
+
+        if imagem_arquivo and imagem_arquivo.filename != '':
+            # Se o admin enviou nova imagem manualmente
+            filename = secure_filename(imagem_arquivo.filename)
+            image_url = upload_to_s3(imagem_arquivo, filename)
+            projeto.imagem = image_url
+        else:
+            # Se não enviou imagem, mas o site mudou, captura nova screenshot
+            if site_url != old_site or not projeto.imagem:
+                screenshot_url = capturar_screenshot(site_url, projeto.nome)
+                if screenshot_url:
+                    projeto.imagem = screenshot_url
 
         db.session.commit()
         flash("✏️ Projeto atualizado com sucesso!", "info")
