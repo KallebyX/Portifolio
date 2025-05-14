@@ -63,6 +63,10 @@ def create_app():
     @app.route('/robots.txt')
     def robots():
         return app.send_static_file('robots.txt')
+    
+    @app.route('/offline.html')
+    def offline():
+        return render_template('offline.html')
 
     @app.route('/google8d6a10aad4e7c671.html')
     def google_verification():
