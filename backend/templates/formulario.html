@@ -240,12 +240,9 @@
     function mostrarPasso(index) {
       passos.forEach((el, i) => {
         if (i === index) {
-          el.classList.remove('d-none', 'fade-out');
-          el.classList.add('fade-in');
+          el.classList.remove('d-none');
         } else {
-          el.classList.remove('fade-in');
-          el.classList.add('fade-out');
-          setTimeout(() => el.classList.add('d-none'), 300);
+          el.classList.add('d-none');
         }
       });
     }
@@ -264,6 +261,7 @@
       }
     };
 
+    // Inicia exibindo apenas o primeiro passo
     mostrarPasso(indiceAtual);
   });
 </script>

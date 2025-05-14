@@ -71,3 +71,4 @@ def enviar_formulario():
 
     # 7. Redireciona de volta ao formulário
     return redirect(url_for('main.formulario'))
+
