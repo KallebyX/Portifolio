@@ -1,57 +1,73 @@
 # routes/formulario.py
-from flask import Blueprint, request, render_template_string, current_app, redirect, url_for
+
+import os
+from flask import Blueprint, request, redirect, url_for, flash, current_app
 from flask_mail import Message
-from flask import current_app
+from werkzeug.utils import secure_filename
 
 form = Blueprint('form', __name__)
 
 @form.route("/enviar-formulario", methods=["POST"])
 def enviar_formulario():
-    dados = request.form
+    # 1. Captura os dados do formulário
+    dados = request.form.to_dict()
+    arquivo = request.files.get('arquivo_exemplo')
+
+    # 2.1. Obter destinatário do .env ou config
+    destinatario = current_app.config.get('MAIL_DESTINATARIO') or os.getenv('MAIL_DESTINATARIO')
+    if not destinatario:
+        current_app.logger.error("Variável MAIL_DESTINATARIO não encontrada.")
+        flash('❌ Destinatário de e-mail não configurado. Entre em contato.', 'danger')
+        return redirect(url_for('main.formulario'))
+
+    # 2. Monta a lista de perguntas e respostas em <li>
+    perguntas_respostas = ""
+    for campo, resposta in dados.items():
+        label = campo.replace("_", " ").capitalize()
+        perguntas_respostas += f"<li><strong>{label}:</strong> {resposta}</li>"
+
+    # 3. Constroi o template HTML do email
     corpo_email = f"""
-    Nova ideia de projeto enviada pelo site:
-
-    Nome: {dados.get('nome', '')}
-    Email: {dados.get('email', '')}
-    WhatsApp: {dados.get('whatsapp', '')}
-
-    Problema: {dados.get('problema', '')}
-    Solução: {dados.get('solucao') or dados.get('mensagem', '')}
-    Referência: {dados.get('referencia', '')}
-    Tipo de projeto: {dados.get('tipo_projeto', '')}
-    Funcionalidades: {dados.get('funcionalidades', '')}
-    Público-alvo: {dados.get('publico', '')}
-    Plataforma: {dados.get('plataforma', '')}
-    Prazo: {dados.get('prazo', '')}
-    Orçamento: {dados.get('orcamento', '')}
-    Observações adicionais: {dados.get('observacoes', '')}
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+      <meta charset="UTF-8">
+      <title>Nova Ideia de Projeto</title>
+    </head>
+    <body style="font-family:Arial,sans-serif;background:#f4f6f8;padding:20px;">
+      <div style="max-width:600px;margin:auto;background:#fff;padding:20px;border-radius:8px;">
+        <h2 style="color:#007bff;">Nova Ideia de Projeto</h2>
+        <ul style="list-style:none;padding:0;">{perguntas_respostas}</ul>
+        <p style="font-size:12px;color:#666;">Enviada via Portfólio de Kalleby Evangelho</p>
+      </div>
+    </body>
+    </html>
     """
 
-    # Cria a mensagem de email
+    # 4. Prepara a mensagem
+    remetente = current_app.config.get('MAIL_USERNAME') or os.getenv('MAIL_USERNAME')
     msg = Message(
-        subject="Nova Ideia de Software",
-        sender=current_app.config['MAIL_USERNAME'],
-        recipients=[current_app.config['MAIL_USERNAME']]
+        subject="🆕 Nova Ideia de Projeto Recebida",
+        sender=remetente,
+        recipients=[destinatario],
+        html=corpo_email
     )
-    msg.body = corpo_email
 
-    # Debug: log e print do corpo de email
-    print("DEBUG - corpo_email:\n", corpo_email)
-    current_app.logger.info("Enviar formulário - corpo_email:\n%s", corpo_email)
+    # 5. Anexa arquivo, se houver
+    if arquivo and arquivo.filename:
+        filename = secure_filename(arquivo.filename)
+        msg.attach(filename, arquivo.content_type, arquivo.read())
 
+    # 6. Obtém a instância Mail sem importar diretamente para evitar circular import
     try:
-        current_app.extensions['mail'].send(msg)
-        # Para teste, renderiza o corpo do email na resposta
-        return render_template_string(
-            """
-            <h2>Email enviado com sucesso!</h2>
-            <p>Veja abaixo o conteúdo que foi enviado:</p>
-            <pre>{{ corpo_email }}</pre>
-            <a href="{{ url_for('main.formulario') }}">Voltar ao formulário</a>
-            """,
-            corpo_email=corpo_email
-        )
+        mail = current_app.extensions.get('mail')
+        if not mail:
+            raise RuntimeError("Flask-Mail não está configurado corretamente.")
+        mail.send(msg)
+        flash('✅ Formulário enviado com sucesso!', 'success')
     except Exception as e:
-        error_msg = f"Erro ao enviar: {str(e)}"
-        current_app.logger.error(error_msg)
-        return error_msg
+        current_app.logger.error(f"Erro ao enviar e-mail: {e}")
+        flash('❌ Erro ao enviar o formulário. Tente novamente mais tarde.', 'danger')
+
+    # 7. Redireciona de volta ao formulário
+    return redirect(url_for('main.formulario'))

@@ -700,3 +700,31 @@ body.dark-mode .navbar-shrink {
     min-width: 120px;
   }
 }
+/* Barra de progresso do formulário */
+.progress-container {
+  width: 100%;
+  background-color: #e9ecef;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  height: 0.75rem;
+}
+.progress-bar {
+  width: 0;
+  height: 100%;
+  background-color: var(--primary);
+  transition: width 0.3s ease;
+}
+
+/* Responsividade do formulário */
+.multi-step {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+
+/* Formulário multistep: sempre visível, sem hover */
+#formularioMultiStep .multi-step {
+  display: block !important;
+}
