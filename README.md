@@ -1,58 +1,85 @@
-# 🌟 Portfólio Pessoal - Kalleby Evangelho Mota
+# 🚀 Portfólio Evolutivo - Kalleby Evangelho
 
-> Um projeto pessoal para apresentar minhas habilidades em desenvolvimento web, programação Python, inovação tecnológica e empreendedorismo social.
-
----
-
-## 🧠 Visão Geral
-
-Este portfólio é uma plataforma digital criada para reunir minhas principais informações, projetos de destaque e abrir canais de contato com clientes, parceiros e investidores.  
-
-O projeto busca refletir a combinação de tecnologia, design e impacto social, valores que guiam minha trajetória profissional.
+**Status:** Em Evolução • **Roadmap Aberto**
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## 📜 Sobre o Projeto
 
-### Front-end
-- **HTML5** - Estruturação semântica
-- **CSS3** - Estilização responsiva
-- **JavaScript Vanilla** - Funcionalidades básicas dinâmicas
+Este projeto visa transformar o portfólio pessoal de **Kalleby Evangelho** em uma **plataforma viva de tecnologia, comunicação e inovação**.
 
-### Back-end
-- **Python 3.12**
-- **Flask** *(estrutura para renderizar páginas dinâmicas, se aplicável)*
-- **Gunicorn** *(servidor WSGI utilizado para produção no Render)*
-
-### Infraestrutura e Deploy
-- **Render.com** - Plataforma de deploy contínuo
-- **GitHub** - Controle de versão e hospedagem de código-fonte
+A missão é evoluir continuamente, adicionando segurança, inteligência, automação e APIs abertas, tornando o portfólio uma vitrine real de capacidades técnicas e visão de futuro.
 
 ---
 
-## ✨ Funcionalidades do Site
+## 🧩 Estrutura de Evolução
 
-- Página inicial apresentando resumo pessoal
-- Sessão de Projetos com descrição de tecnologias utilizadas
-- Seção Sobre Mim contando trajetória e interesses profissionais
-- Área de Contato com links para redes sociais e e-mail
-- Layout Responsivo (adaptado para desktop, tablet e celular)
+O roadmap do projeto está dividido em cinco fases:
 
+| Fase | Objetivo |
+|:----|:---------|
+| **Fase 1** - Blindagem Profissional | Estabilizar, proteger e estruturar |
+| **Fase 2** - Comunicação Avançada | Melhorar a interação usuário-website |
+| **Fase 3** - Transformação em Produto | Evoluir para SaaS pessoal |
+| **Fase 4** - Plataforma Aberta | APIs, multiusuários e dados públicos |
+| **Fase 5** - Visão Futurista | IA, automação e inteligência comercial |
 
-## 📂 Estrutura do Projeto
+---
 
-```bash
-Portifolio/
-├── app.py                # Arquivo principal Python
-├── requirements.txt      # Dependências do projeto
-├── static/               # Pasta para arquivos estáticos (CSS, JS, imagens)
-│   ├── css/
-│   ├── js/
-│   └── img/
-├── templates/            # Arquivos HTML renderizados via Flask
-│   ├── index.html
-│   ├── sobre.html
-│   └── projetos.html
-├── assets/
-│   └── prints/           # Printscreens usados no README
-└── README.md             # Documentação do projeto
+## 🛠️ Tecnologias Utilizadas
+
+- Python 3.13
+- Flask
+- Flask-Mail
+- AWS S3 (armazenamento de imagens de forma escalável)
+- Bootstrap 5
+- JavaScript
+- GitHub Projects 2.0 (gestão ágil do roadmap)
+- Docker (planejado para futuro deploy)
+- Render.com (deploy automático)
+
+---
+
+## 🔥 Novidades Recentes
+
+- 🛡️ Sistema de envio de formulários protegido com reCAPTCHA invisível (planejado)
+- 🛡️ Limitação segura de uploads (planejado)
+- ☁️ Integração com AWS S3 para armazenar imagens de projetos
+- 📨 Sistema de envio de e-mails separado para Contato e Formulário de Ideias
+- 🗂️ Roadmap estruturado no GitHub Project
+- 📈 Plano de evolução contínua mensal/trimestral
+
+---
+
+## 🗂️ Organização do Projeto
+
+- **Monthly Roadmap** – Entregas planejadas mês a mês
+- **Quarterly Roadmap** – Roadmap trimestral
+- **Backlog** – Ideias futuras organizadas por fases
+- **Issues** – Divididas com Labels profissionais por Fase
+
+---
+
+## 📈 Roadmap Atual
+
+| Mês | Prioridades |
+|:----|:------------|
+| maio 2025 | Blindagem do sistema (segurança, logs) |
+| junho 2025 | Comunicação Avançada e Dashboard Interno |
+| julho 2025 em diante | Evolução para SaaS + API pública + IA interna |
+
+Para detalhes, acesse o [Roadmap do Projeto](https://github.com/KallebyX/Portifolio/projects).
+
+---
+
+## 🤝 Como Contribuir
+
+Atualmente o projeto é pessoal, mas colaborações podem ser propostas via Issues ou Pull Requests.
+
+---
+
+## ✨ Autor
+
+Desenvolvido por [Kalleby Evangelho](https://www.kallebyevangelho.com.br/) • Engenharia, Inovação e Futuro 🚀
+
+---
