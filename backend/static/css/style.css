@@ -1017,9 +1017,57 @@ hr.border-primary {
     opacity: 0.5;
 }
 
-/* Fix for legacy image styling */
-.project-img,
-.profile-photo {
-    background: transparent;
-    padding: 0;
+/* Dark mode link improvements */
+body.dark-mode .contact-form-card .bg-light {
+    background-color: var(--bg-secondary-dark) !important;
+}
+
+body.dark-mode .contact-form-card a {
+    color: var(--text-dark) !important;
+}
+
+body.dark-mode .contact-form-card a:hover {
+    color: var(--primary) !important;
+    background-color: rgba(0, 122, 255, 0.1) !important;
+}
+
+/* Filter button active state */
+.filter-btn.active {
+    background-color: var(--primary) !important;
+    color: white !important;
+    border-color: var(--primary) !important;
+}
+
+body.dark-mode .filter-btn.active {
+    background-color: var(--primary) !important;
+    color: white !important;
+    border-color: var(--primary) !important;
+}
+
+/* Better badge styling */
+.badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-sm);
+}
+
+/* Project category badges */
+.project .badge {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 10;
+}
+
+/* Tech stack badges */
+.badge.bg-light {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+    color: var(--text-light) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .badge.bg-light {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: var(--text-dark) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
