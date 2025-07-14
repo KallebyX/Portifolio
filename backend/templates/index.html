@@ -8,11 +8,11 @@
 <!-- Hero Section (Index Only) -->
 <section class="hero-section" id="home" data-aos="fade-in">
   <div class="container text-center text-white d-flex flex-column justify-content-center align-items-center" style="height: 100vh;">
-    <h1 class="display-3">Tecnologia com Propósito. Inovação com Empatia. Soluções Humanizadas para o Amanhã.</h1>
-    <p class="lead mb-4">Conectando tecnologia e propósito em soluções reais.</p>
-    <div>
-      <a href="#formulario" class="btn btn-primary btn-lg mx-2">Descreva sua ideia</a>
-      <a href="#projetos" class="btn btn-outline-primary btn-lg mx-2">Ver projetos</a>
+    <h1 class="display-3 mb-4">Tecnologia com Propósito.<br>Inovação com Empatia.<br>Soluções Humanizadas para o Amanhã.</h1>
+    <p class="lead mb-5 fs-4">Conectando tecnologia e propósito em soluções reais que transformam vidas.</p>
+    <div class="d-flex flex-wrap gap-3 justify-content-center">
+      <a href="#sobre" class="btn btn-primary btn-lg">Descreva sua ideia</a>
+      <a href="#projetos" class="btn btn-outline-primary btn-lg">Ver projetos</a>
     </div>
   </div>
 </section>
@@ -22,16 +22,20 @@
   <div class="container" data-aos="fade-up">
     <div class="row align-items-center">
       <div class="col-md-6" data-aos="fade-right">
-        <h2 class="fw-bold">Quem é Kalleby?</h2>
-        <p class="mt-3 fs-5 text-muted">
-          Estudante de Engenharia Biomédica, fundador da Biomove, desenvolvedor de tecnologias assistivas e apaixonado por IA aplicada à saúde e educação. Um jovem movido por empatia, inovação e coragem para transformar o mundo.
+        <h2 class="fw-bold mb-4">Quem é Kalleby?</h2>
+        <p class="fs-5 text-secondary mb-4">
+          Estudante de Engenharia Biomédica, fundador da Biomove, desenvolvedor de tecnologias assistivas e apaixonado por IA aplicada à saúde e educação.
         </p>
-        <a href="#areas" class="btn btn-outline-primary btn-lg mt-3">Ver Áreas</a>
+        <p class="fs-6 text-secondary mb-4">
+          Um jovem movido por empatia, inovação e coragem para transformar o mundo através da tecnologia humanizada.
+        </p>
+        <a href="/sobre.html" class="btn btn-outline-primary btn-lg">Conhecer Trajetória</a>
       </div>
       <div class="col-md-6 text-center" data-aos="fade-left">
         <img src="{{ url_for('static', filename='img/profile1.jpg') }}"
              alt="Foto de Kalleby Evangelho"
-             class="img-fluid profile-photo">
+             class="img-fluid profile-photo"
+             loading="lazy">
       </div>
     </div>
   </div>
@@ -47,26 +51,32 @@
       <div class="col-md-4" data-aos="fade-up">
         <div class="card border-0 shadow h-100 text-center p-4 bg-transparent">
           <div class="card-body">
-            <i class="fa fa-wheelchair fa-2x mb-3" style="color: var(--primary);"></i>
-            <h5 class="fw-bold text-primary">Tecnologia Assistiva</h5>
-            <p class="text-white-50">Desenvolvimento de próteses, cadeiras de rodas interativas e dispositivos inclusivos.</p>
+            <div class="mb-4">
+              <i class="fa fa-wheelchair fa-3x" style="color: var(--primary);"></i>
+            </div>
+            <h5 class="fw-bold text-white mb-3">Tecnologia Assistiva</h5>
+            <p class="text-white-50">Desenvolvimento de próteses inteligentes, cadeiras de rodas interativas e dispositivos inclusivos que transformam vidas.</p>
           </div>
         </div>
       </div>
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
         <div class="card border-0 shadow h-100 text-center p-4 bg-transparent">
           <div class="card-body">
-            <i class="fa fa-chalkboard-teacher fa-2x mb-3" style="color: var(--dourado-suave);"></i>
-            <h5 class="fw-bold" style="color: var(--dourado-suave);">Educação com IA</h5>
-            <p class="text-white-50">Plataformas educacionais com inteligência artificial e gamificação para ensino inclusivo.</p>
+            <div class="mb-4">
+              <i class="fa fa-brain fa-3x" style="color: var(--warning);"></i>
+            </div>
+            <h5 class="fw-bold text-white mb-3">Educação com IA</h5>
+            <p class="text-white-50">Plataformas educacionais com inteligência artificial e gamificação para ensino inclusivo e personalizado.</p>
           </div>
         </div>
       </div>
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
         <div class="card border-0 shadow h-100 text-center p-4 bg-transparent">
           <div class="card-body">
-            <i class="fa fa-microchip fa-2x mb-3" style="color: var(--azul-profundo);"></i>
-            <h5 class="fw-bold" style="color: var(--azul-profundo);">Engenharia e Inovação</h5>
+            <div class="mb-4">
+              <i class="fa fa-microchip fa-3x" style="color: var(--success);"></i>
+            </div>
+            <h5 class="fw-bold text-white mb-3">Engenharia e Inovação</h5>
             <p class="text-white-50">Soluções criativas usando eletrônica, programação embarcada, machine learning e muito mais.</p>
           </div>
         </div>
@@ -81,19 +91,47 @@
     <h2 class="text-center fw-bold mb-5" data-aos="fade-up">Nossos Valores</h2>
     <div class="row g-4 text-center">
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-        <i class="fa fa-handshake fa-2x mb-3" style="color: var(--ciano-luminoso);"></i>
-        <h5 class="fw-bold">Empatia</h5>
-        <p class="text-muted">Entender para inovar soluções que toquem vidas.</p>
+        <div class="card h-100 border-0 p-4">
+          <div class="card-body">
+            <div class="mb-4">
+              <i class="fa fa-heart fa-3x" style="color: var(--primary);"></i>
+            </div>
+            <h5 class="fw-bold mb-3">Empatia</h5>
+            <p class="text-secondary">Entender para inovar soluções que toquem vidas e façam a diferença real no mundo.</p>
+          </div>
+        </div>
       </div>
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-        <i class="fa fa-lightbulb fa-2x mb-3" style="color: var(--dourado-suave);"></i>
-        <h5 class="fw-bold">Criatividade</h5>
-        <p class="text-muted">Pensar fora da caixa para resultados surpreendentes.</p>
+        <div class="card h-100 border-0 p-4">
+          <div class="card-body">
+            <div class="mb-4">
+              <i class="fa fa-lightbulb fa-3x" style="color: var(--warning);"></i>
+            </div>
+            <h5 class="fw-bold mb-3">Criatividade</h5>
+            <p class="text-secondary">Pensar fora da caixa para resultados surpreendentes e soluções inovadoras.</p>
+          </div>
+        </div>
       </div>
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-        <i class="fa fa-cogs fa-2x mb-3" style="color: var(--azul-profundo);"></i>
-        <h5 class="fw-bold">Tecnologia</h5>
-        <p class="text-muted">Ferramentas avançadas a serviço do seu propósito.</p>
+        <div class="card h-100 border-0 p-4">
+          <div class="card-body">
+            <div class="mb-4">
+              <i class="fa fa-cogs fa-3x" style="color: var(--success);"></i>
+            </div>
+            <h5 class="fw-bold mb-3">Tecnologia</h5>
+            <p class="text-secondary">Ferramentas avançadas a serviço do seu propósito e transformação digital.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Call to Action -->
+    <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="400">
+      <h3 class="fw-bold mb-3">Vamos transformar sua ideia em realidade?</h3>
+      <p class="text-secondary mb-4">Entre em contato e vamos conversar sobre como posso ajudar seu projeto.</p>
+      <div class="d-flex flex-wrap gap-3 justify-content-center">
+        <a href="/formulario.html" class="btn btn-primary btn-lg">Descrever Projeto</a>
+        <a href="/contato.html" class="btn btn-outline-primary btn-lg">Entrar em Contato</a>
       </div>
     </div>
   </div>

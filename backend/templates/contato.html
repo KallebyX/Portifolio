@@ -1,40 +1,119 @@
 {% extends 'base.html' %}
+{% block title %}Contato | Kalleby Evangelho{% endblock %}
 {% block content %}
 <section class="contact-section container py-5 mt-5">
-  <h2 class="text-center mb-5 fw-bold text-primary" data-aos="fade-up">Entre em contato</h2>
+  <div class="text-center mb-5">
+    <h2 class="fw-bold mb-3" data-aos="fade-up">Entre em contato</h2>
+    <p class="text-secondary fs-5" data-aos="fade-up" data-aos-delay="100">
+      Vamos conversar sobre seu próximo projeto ou ideia inovadora
+    </p>
+  </div>
 
   <div class="row g-5 align-items-stretch">
     <div class="col-md-6" data-aos="fade-right">
-      <div class="card p-4 shadow border-0 h-100">
-        <h5 class="mb-4 text-secondary">Redes e Plataformas</h5>
-        <ul class="list-unstyled fs-6">
-          <li class="mb-3"><a class="text-decoration-none text-dark" href="https://wa.me/5555991255935" target="_blank" aria-label="Conversar no WhatsApp com Kalleby Evangelho"><i class="fab fa-whatsapp text-success me-2"></i>WhatsApp</a></li>
-          <li class="mb-3"><a class="text-decoration-none text-dark" href="https://www.instagram.com/kallebyevangelho" target="_blank" aria-label="Visitar Instagram de Kalleby Evangelho"><i class="fab fa-instagram text-danger me-2"></i>Instagram</a></li>
-          <li class="mb-3"><a class="text-decoration-none text-dark" href="https://github.com/KallebyX" target="_blank" aria-label="Visitar GitHub de Kalleby Evangelho"><i class="fab fa-github me-2"></i>GitHub</a></li>
-          <li class="mb-3"><a class="text-decoration-none text-dark" href="https://www.linkedin.com/in/kalleby-evangelho/" target="_blank" aria-label="Visitar LinkedIn de Kalleby Evangelho"><i class="fab fa-linkedin me-2"></i>LinkedIn</a></li>
-          <li class="mb-3"><a class="text-decoration-none text-dark" href="http://lattes.cnpq.br/8152266941105091" target="_blank" aria-label="Visitar Lattes de Kalleby Evangelho"><i class="fas fa-user-graduate me-2"></i>Lattes</a></li>
-          <li class="mb-3"><a class="text-decoration-none text-dark" href="https://orcid.org/0009-0005-9156-0701" target="_blank" aria-label="Visitar ORCID de Kalleby Evangelho"><i class="fas fa-id-card me-2"></i>ORCID</a></li>
-          <li class="mb-3"><a class="text-decoration-none text-dark" href="mailto:kallebyevangelho03@gmail.com" aria-label="Enviar email para Kalleby Evangelho"><i class="fas fa-envelope me-2"></i>kallebyevangelho03@gmail.com</a></li>
-        </ul>
+      <div class="contact-form-card h-100">
+        <h5 class="mb-4 fw-bold">Minhas Redes</h5>
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <a class="d-flex align-items-center p-3 text-decoration-none rounded-3 bg-light" href="https://wa.me/5555991255935" target="_blank" aria-label="Conversar no WhatsApp com Kalleby Evangelho">
+              <i class="fab fa-whatsapp fa-2x text-success me-3"></i>
+              <div>
+                <div class="fw-semibold">WhatsApp</div>
+                <small class="text-secondary">Conversa rápida</small>
+              </div>
+            </a>
+          </div>
+          <div class="col-sm-6">
+            <a class="d-flex align-items-center p-3 text-decoration-none rounded-3 bg-light" href="https://www.linkedin.com/in/kalleby-evangelho/" target="_blank" aria-label="Visitar LinkedIn de Kalleby Evangelho">
+              <i class="fab fa-linkedin fa-2x text-primary me-3"></i>
+              <div>
+                <div class="fw-semibold">LinkedIn</div>
+                <small class="text-secondary">Networking</small>
+              </div>
+            </a>
+          </div>
+          <div class="col-sm-6">
+            <a class="d-flex align-items-center p-3 text-decoration-none rounded-3 bg-light" href="https://github.com/KallebyX" target="_blank" aria-label="Visitar GitHub de Kalleby Evangelho">
+              <i class="fab fa-github fa-2x text-dark me-3"></i>
+              <div>
+                <div class="fw-semibold">GitHub</div>
+                <small class="text-secondary">Projetos</small>
+              </div>
+            </a>
+          </div>
+          <div class="col-sm-6">
+            <a class="d-flex align-items-center p-3 text-decoration-none rounded-3 bg-light" href="https://www.instagram.com/kallebyevangelho" target="_blank" aria-label="Visitar Instagram de Kalleby Evangelho">
+              <i class="fab fa-instagram fa-2x text-danger me-3"></i>
+              <div>
+                <div class="fw-semibold">Instagram</div>
+                <small class="text-secondary">Conteúdo</small>
+              </div>
+            </a>
+          </div>
+        </div>
+        
+        <hr class="my-4">
+        
+        <div class="row g-3">
+          <div class="col-12">
+            <a class="d-flex align-items-center p-3 text-decoration-none rounded-3 bg-light" href="mailto:kallebyevangelho03@gmail.com" aria-label="Enviar email para Kalleby Evangelho">
+              <i class="fas fa-envelope fa-2x text-primary me-3"></i>
+              <div>
+                <div class="fw-semibold">Email</div>
+                <small class="text-secondary">kallebyevangelho03@gmail.com</small>
+              </div>
+            </a>
+          </div>
+          <div class="col-sm-6">
+            <a class="d-flex align-items-center p-3 text-decoration-none rounded-3 bg-light" href="http://lattes.cnpq.br/8152266941105091" target="_blank" aria-label="Visitar Lattes de Kalleby Evangelho">
+              <i class="fas fa-user-graduate fa-2x text-warning me-3"></i>
+              <div>
+                <div class="fw-semibold">Lattes</div>
+                <small class="text-secondary">Currículo</small>
+              </div>
+            </a>
+          </div>
+          <div class="col-sm-6">
+            <a class="d-flex align-items-center p-3 text-decoration-none rounded-3 bg-light" href="https://orcid.org/0009-0005-9156-0701" target="_blank" aria-label="Visitar ORCID de Kalleby Evangelho">
+              <i class="fas fa-id-card fa-2x text-info me-3"></i>
+              <div>
+                <div class="fw-semibold">ORCID</div>
+                <small class="text-secondary">Pesquisa</small>
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="col-md-6" data-aos="fade-left">
-      <div class="card p-4 shadow border-0 h-100">
-        <h5 class="mb-4 text-secondary">Envie uma mensagem rápida</h5>
-        <form method="POST" action="/enviar-formulario">
-          <div class="mb-3" data-aos="fade-up">
-            <label for="nome" class="form-label fw-semibold">Nome</label>
-            <input type="text" class="form-control" id="nome" name="nome" required placeholder="Digite seu nome completo...">
+      <div class="contact-form-card h-100">
+        <h5 class="mb-4 fw-bold">Envie uma mensagem</h5>
+        <form method="POST" action="/enviar-formulario" novalidate>
+          <div class="mb-3">
+            <label for="nome" class="form-label fw-semibold">Nome completo</label>
+            <input type="text" class="form-control" id="nome" name="nome" required placeholder="Seu nome completo">
+            <div class="invalid-feedback">
+              Por favor, informe seu nome.
+            </div>
           </div>
-          <div class="mb-3" data-aos="fade-up">
+          
+          <div class="mb-3">
             <label for="email" class="form-label fw-semibold">Email</label>
-            <input type="email" class="form-control" id="email" name="email" required placeholder="Digite seu e-mail para contato...">
+            <input type="email" class="form-control" id="email" name="email" required placeholder="seu@email.com">
+            <div class="invalid-feedback">
+              Por favor, informe um email válido.
+            </div>
           </div>
-          <div class="mb-3" data-aos="fade-up">
+          
+          <div class="mb-4">
             <label for="mensagem" class="form-label fw-semibold">Mensagem</label>
-            <textarea class="form-control" id="mensagem" name="mensagem" rows="5" required placeholder="Digite sua mensagem..."></textarea>
+            <textarea class="form-control" id="mensagem" name="mensagem" rows="5" required placeholder="Conte-me sobre seu projeto ou ideia..."></textarea>
+            <div class="invalid-feedback">
+              Por favor, escreva sua mensagem.
+            </div>
           </div>
+          
           <button type="submit" class="btn btn-primary btn-lg w-100">
             <i class="fas fa-paper-plane me-2"></i>Enviar Mensagem
           </button>

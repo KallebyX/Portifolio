@@ -5,14 +5,26 @@
 {% block content %}
 <!-- Filtros -->
 <section class="container mt-5 pt-5 text-center">
-  <h2 class="mb-4 fw-bold text-primary" data-aos="fade-up">Meus Projetos</h2>
-  <p class="text-muted mb-4">Conheça alguns dos sistemas, protótipos e plataformas que desenvolvi com foco em saúde, educação e IA.</p>
-  <div class="btn-group flex-wrap justify-content-center shadow-sm" role="group" aria-label="Filtros de categoria">
-    <button class="btn btn-outline-primary filter-btn" onclick="filterProjects('todos')" title="Exibe todos os projetos">Todos</button>
-    <button class="btn btn-outline-primary filter-btn" onclick="filterProjects('saude')" title="Filtrar projetos de saúde">Saúde</button>
-    <button class="btn btn-outline-primary filter-btn" onclick="filterProjects('educacao')" title="Filtrar projetos de educação">Educação</button>
-    <button class="btn btn-outline-primary filter-btn" onclick="filterProjects('web')" title="Filtrar projetos web">Web</button>
-    <button class="btn btn-outline-primary filter-btn" onclick="filterProjects('ia')" title="Filtrar projetos de inteligência artificial">IA</button>
+  <h2 class="mb-4 fw-bold" data-aos="fade-up">Meus Projetos</h2>
+  <p class="text-secondary mb-5 fs-5" data-aos="fade-up" data-aos-delay="100">
+    Conheça alguns dos sistemas, protótipos e plataformas que desenvolvi com foco em saúde, educação e IA.
+  </p>
+  <div class="d-flex flex-wrap justify-content-center gap-2 mb-4" role="group" aria-label="Filtros de categoria" data-aos="fade-up" data-aos-delay="200">
+    <button class="btn btn-outline-primary filter-btn active" onclick="filterProjects('todos')" title="Exibe todos os projetos">
+      <i class="fa fa-th-large me-2"></i>Todos
+    </button>
+    <button class="btn btn-outline-primary filter-btn" onclick="filterProjects('saude')" title="Filtrar projetos de saúde">
+      <i class="fa fa-heartbeat me-2"></i>Saúde
+    </button>
+    <button class="btn btn-outline-primary filter-btn" onclick="filterProjects('educacao')" title="Filtrar projetos de educação">
+      <i class="fa fa-graduation-cap me-2"></i>Educação
+    </button>
+    <button class="btn btn-outline-primary filter-btn" onclick="filterProjects('web')" title="Filtrar projetos web">
+      <i class="fa fa-globe me-2"></i>Web
+    </button>
+    <button class="btn btn-outline-primary filter-btn" onclick="filterProjects('ia')" title="Filtrar projetos de inteligência artificial">
+      <i class="fa fa-brain me-2"></i>IA
+    </button>
   </div>
 </section>
 
@@ -20,25 +32,54 @@
 <section class="container mt-5 mb-5">
   <div class="projects-grid" id="projects-container">
     {% for projeto in projetos %}
-      <div class="project {{ projeto.categoria | lower }} {{ projeto.stack | lower }}" data-aos="zoom-in" data-aos-delay="{{ loop.index0 * 100 }}">
-        <div class="card project-card h-100 shadow-sm border-0">
-          <img src="{{ projeto.imagem }}" class="card-img-top project-img" alt="Imagem do projeto {{ projeto.nome }}" loading="lazy">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title text-primary" title="Nome do projeto" data-aos="fade-up">{{ projeto.nome }}</h5>
-            <p class="card-text" title="Descrição breve do projeto">{{ projeto.descricao }}</p>
+      <div class="project {{ projeto.categoria | lower }} {{ projeto.stack | lower }}" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
+        <div class="card project-card h-100 border-0">
+          {% if projeto.imagem %}
+          <div class="position-relative overflow-hidden">
+            <img src="{{ projeto.imagem }}" class="card-img-top project-img" alt="Imagem do projeto {{ projeto.nome }}" loading="lazy">
+            <div class="position-absolute top-0 start-0 m-3">
+              <span class="badge bg-primary">{{ projeto.categoria | title }}</span>
+            </div>
+          </div>
+          {% endif %}
+          <div class="card-body d-flex flex-column p-4">
+            <h5 class="card-title fw-bold mb-3" title="Nome do projeto">{{ projeto.nome }}</h5>
+            <p class="card-text text-secondary mb-4" title="Descrição breve do projeto">{{ projeto.descricao }}</p>
+            
+            {% if projeto.stack %}
+            <div class="mb-3">
+              <small class="text-muted">Tecnologias:</small>
+              <div class="mt-1">
+                {% for tech in projeto.stack.split(',') %}
+                <span class="badge bg-light text-dark me-1 mb-1">{{ tech.strip() }}</span>
+                {% endfor %}
+              </div>
+            </div>
+            {% endif %}
+            
             <div class="mt-auto d-flex gap-2">
               {% if projeto.link %}
-                <a href="{{ projeto.link }}" target="_blank" class="btn btn-outline-primary btn-sm" aria-label="Ver código fonte no GitHub">GitHub</a>
+                <a href="{{ projeto.link }}" target="_blank" class="btn btn-outline-primary btn-sm flex-fill" aria-label="Ver código fonte no GitHub">
+                  <i class="fab fa-github me-1"></i>Código
+                </a>
               {% endif %}
               {% if projeto.site %}
-                <a href="{{ projeto.site }}" target="_blank" class="btn btn-outline-success btn-sm" aria-label="Visitar site do projeto">Ver Site</a>
+                <a href="{{ projeto.site }}" target="_blank" class="btn btn-primary btn-sm flex-fill" aria-label="Visitar site do projeto">
+                  <i class="fa fa-external-link-alt me-1"></i>Ver Site
+                </a>
               {% endif %}
               {% if not projeto.link and not projeto.site %}
-                <span class="badge bg-secondary">Demonstração indisponível</span>
+                <span class="badge bg-secondary">Em desenvolvimento</span>
               {% endif %}
             </div>
           </div>
         </div>
+      </div>
+    {% else %}
+      <div class="col-12 text-center py-5">
+        <i class="fa fa-code fa-3x text-secondary mb-3"></i>
+        <h4 class="text-secondary">Nenhum projeto encontrado</h4>
+        <p class="text-secondary">Os projetos estão sendo adicionados em breve.</p>
       </div>
     {% endfor %}
   </div>

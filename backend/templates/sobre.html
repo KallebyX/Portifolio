@@ -1,134 +1,190 @@
 {% extends 'base.html' %}
+{% block title %}Sobre | Kalleby Evangelho{% endblock %}
 {% block content %}
 <!-- Sobre Kalleby -->
-<section class="container py-5 mt-5 bg-light rounded-4 shadow-sm section-trajectory">
-  <h2 class="text-center section-title mb-5 fw-bold" data-aos="fade-up">Sobre Kalleby Evangelho</h2>
-  <p class="text-center lead mb-5" data-aos="fade-up" data-aos-delay="100">
-    Kalleby Evangelho é estudante de Engenharia Biomédica, desenvolvedor de tecnologias assistivas e fundador da Biomove. Atua na criação de soluções que unem inovação, inclusão e impacto social, sempre com foco na transformação real de vidas através da tecnologia.
-  </p>
-  <h2 class="text-center section-title mb-5 fw-bold" data-aos="fade-up">Trajetória Profissional</h2>
-  <div class="row g-4">
-    <div class="col-md-6" data-aos="fade-up">
-      <div class="card timeline-card h-100 p-4 border-0">
-        <h5 class="timeline-date">2022</h5>
-        <p>Curso Fullstack com foco em HTML5, CSS3, JS, React, Python e SQL. Aprimoramento de soft skills e liderança técnica.</p>
+<section class="container py-5 mt-5">
+  <div class="text-center mb-5">
+    <h2 class="fw-bold mb-3" data-aos="fade-up">Sobre Kalleby Evangelho</h2>
+    <p class="text-secondary fs-5 mx-auto" style="max-width: 800px;" data-aos="fade-up" data-aos-delay="100">
+      Kalleby Evangelho é estudante de Engenharia Biomédica, desenvolvedor de tecnologias assistivas e fundador da Biomove. Atua na criação de soluções que unem inovação, inclusão e impacto social, sempre com foco na transformação real de vidas através da tecnologia.
+    </p>
+  </div>
+  
+  <!-- Trajetória Profissional -->
+  <div class="section-trajectory rounded-4 p-5 mb-5">
+    <h2 class="text-center mb-5 fw-bold text-white" data-aos="fade-up">Trajetória Profissional</h2>
+    <div class="row g-4">
+      <div class="col-md-6" data-aos="fade-up">
+        <div class="timeline-card">
+          <h5 class="timeline-date">2022</h5>
+          <p>Curso Fullstack com foco em HTML5, CSS3, JavaScript, React, Python e SQL. Aprimoramento de soft skills e liderança técnica em projetos colaborativos.</p>
+        </div>
       </div>
-    </div>
-    <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-      <div class="card timeline-card h-100 p-4 border-0">
-        <h5 class="timeline-date">Julho 2023</h5>
-        <p>Ingresso em Ciência da Computação na UFN, aprofundando fundamentos em algoritmos, IA e segurança da informação.</p>
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="timeline-card">
+          <h5 class="timeline-date">Julho 2023</h5>
+          <p>Ingresso em Ciência da Computação na UFN, aprofundando fundamentos em algoritmos, inteligência artificial e segurança da informação.</p>
+        </div>
       </div>
-    </div>
-    <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-      <div class="card timeline-card h-100 p-4 border-0">
-        <h5 class="timeline-date">Agosto 2023</h5>
-        <p>Bolsa de Iniciação Tecnológica em projetos para saúde materno-infantil, incluindo web e Arduino.</p>
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="timeline-card">
+          <h5 class="timeline-date">Agosto 2023</h5>
+          <p>Bolsa de Iniciação Tecnológica em projetos para saúde materno-infantil, incluindo desenvolvimento web e programação embarcada com Arduino.</p>
+        </div>
       </div>
-    </div>
-    <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
-      <div class="card timeline-card h-100 p-4 border-0">
-        <h5 class="timeline-date">Maio 2024</h5>
-        <p>Fundação da Biomove, dedicada ao desenvolvimento de tecnologias assistivas e próteses mioelétricas.</p>
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="timeline-card">
+          <h5 class="timeline-date">Maio 2024</h5>
+          <p>Fundação da Biomove, startup dedicada ao desenvolvimento de tecnologias assistivas e próteses mioelétricas inovadoras.</p>
+        </div>
       </div>
-    </div>
-    <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
-      <div class="card timeline-card h-100 p-4 border-0">
-        <h5 class="timeline-date">Julho 2024</h5>
-        <p>Ingresso em Engenharia Biomédica na UFN, unindo conhecimentos de eletrônica e biologia.</p>
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+        <div class="timeline-card">
+          <h5 class="timeline-date">Julho 2024</h5>
+          <p>Transição para Engenharia Biomédica na UFN, unindo conhecimentos de eletrônica, programação e biologia aplicada.</p>
+        </div>
       </div>
-    </div>
-    <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
-      <div class="card timeline-card h-100 p-4 border-0">
-        <h5 class="timeline-date">Abril 2025</h5>
-        <p>Incubação no Hub Clareira, impulsionando a Biomove com mentoria e networking.</p>
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+        <div class="timeline-card">
+          <h5 class="timeline-date">Abril 2025</h5>
+          <p>Incubação no Hub Clareira, impulsionando a Biomove com mentoria especializada e networking estratégico.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Artigos e Pesquisas -->
-<section class="container py-5">
-  <h2 class="text-center section-title mb-5 fw-bold" data-aos="fade-up">Artigos e Pesquisas</h2>
-  <div class="row g-4">
-    <div class="col-md-6" data-aos="fade-up">
-      <div class="card p-4 border-0 shadow h-100">
-        <h5 class="text-primary">🧠 ToolNurse: Apoio a Consultas Pediátricas</h5>
-        <p class="text-muted">Ferramenta web apresentada no CBEB 2024, apoiando consultas de enfermagem em puericultura.</p>
+<section class="articles-section">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-5" data-aos="fade-up">Artigos e Pesquisas</h2>
+    <div class="row g-4">
+      <div class="col-md-6" data-aos="fade-up">
+        <div class="card h-100 border-0">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <i class="fa fa-brain fa-2x text-primary me-3"></i>
+              <h5 class="mb-0 fw-bold">ToolNurse: Apoio a Consultas Pediátricas</h5>
+            </div>
+            <p class="text-secondary">Ferramenta web apresentada no CBEB 2024, apoiando consultas de enfermagem em puericultura com interface moderna e funcional.</p>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-      <div class="card p-4 border-0 shadow h-100">
-        <h5 class="text-success">🩺 BioECG: Inteligência Artificial para ECG</h5>
-        <p class="text-muted">Sistema em desenvolvimento para interpretação automatizada de eletrocardiogramas usando IA.</p>
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="card h-100 border-0">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <i class="fa fa-heartbeat fa-2x text-success me-3"></i>
+              <h5 class="mb-0 fw-bold">BioECG: Inteligência Artificial para ECG</h5>
+            </div>
+            <p class="text-secondary">Sistema em desenvolvimento para interpretação automatizada de eletrocardiogramas usando algoritmos de IA avançados.</p>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-      <div class="card p-4 border-0 shadow h-100">
-        <h5 class="text-info">🌐 Dispositivos Terapêuticos Digitais</h5>
-        <p class="text-muted">Plataforma web para fortalecimento fisioterapêutico no tratamento da incontinência urinária feminina.</p>
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="card h-100 border-0">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <i class="fa fa-mobile-alt fa-2x text-info me-3"></i>
+              <h5 class="mb-0 fw-bold">Dispositivos Terapêuticos Digitais</h5>
+            </div>
+            <p class="text-secondary">Plataforma web para fortalecimento fisioterapêutico no tratamento da incontinência urinária feminina.</p>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
-      <div class="card p-4 border-0 shadow h-100">
-        <h5 class="text-warning">🤰 Caderneta da Gestante Inclusiva</h5>
-        <p class="text-muted">Interface digital inclusiva para gestantes com deficiência visual, baseada em design thinking.</p>
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="card h-100 border-0">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <i class="fa fa-baby fa-2x text-warning me-3"></i>
+              <h5 class="mb-0 fw-bold">Caderneta da Gestante Inclusiva</h5>
+            </div>
+            <p class="text-secondary">Interface digital inclusiva para gestantes com deficiência visual, baseada em princípios de design thinking.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Sobre a Biomove e Visão de Futuro -->
-<section class="container py-5">
-  <h2 class="text-center section-title mb-5 fw-bold" data-aos="fade-up">Sobre a Biomove e Visão de Futuro</h2>
-  <div class="row g-4">
-    <div class="col-md-6" data-aos="fade-up">
-      <div class="card p-4 border-0 shadow h-100">
-        <h5 class="text-primary">🔬 Democratizando a Tecnologia Assistiva</h5>
-        <p class="text-muted">
-          A Biomove é uma startup que nasceu da vontade de democratizar o acesso à tecnologia assistiva. Desenvolve próteses mioelétricas acessíveis, interfaces gamificadas de reabilitação, focando sempre em soluções de impacto social real, combinando inovação, acessibilidade e propósito.
-        </p>
+<section class="section-light py-5">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-5" data-aos="fade-up">Sobre a Biomove e Visão de Futuro</h2>
+    <div class="row g-4">
+      <div class="col-md-6" data-aos="fade-up">
+        <div class="card h-100 border-0">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <i class="fa fa-rocket fa-2x text-primary me-3"></i>
+              <h5 class="mb-0 fw-bold">Democratizando a Tecnologia Assistiva</h5>
+            </div>
+            <p class="text-secondary">
+              A Biomove é uma startup que nasceu da vontade de democratizar o acesso à tecnologia assistiva. Desenvolve próteses mioelétricas acessíveis e interfaces gamificadas de reabilitação, focando sempre em soluções de impacto social real, combinando inovação, acessibilidade e propósito.
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-      <div class="card p-4 border-0 shadow h-100">
-        <h5 class="text-success">🌟 Impactar, Incluir e Inspirar</h5>
-        <p class="text-muted">
-          Kalleby busca ampliar o impacto de suas soluções através da educação tecnológica, da inovação aplicada à saúde e da inclusão digital. Pretende futuramente expandir sua atuação para a esfera pública, contribuindo para políticas públicas que tornem a inovação acessível a todos.
-        </p>
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="card h-100 border-0">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <i class="fa fa-star fa-2x text-success me-3"></i>
+              <h5 class="mb-0 fw-bold">Impactar, Incluir e Inspirar</h5>
+            </div>
+            <p class="text-secondary">
+              Kalleby busca ampliar o impacto de suas soluções através da educação tecnológica, da inovação aplicada à saúde e da inclusão digital. Pretende futuramente expandir sua atuação para a esfera pública, contribuindo para políticas públicas que tornem a inovação acessível a todos.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Valores e Missão -->
-<section class="valores py-5" style="background: linear-gradient(135deg, #e0f0ff 0%, #f7fbfff 100%);">
+<section class="py-5" style="background: linear-gradient(135deg, var(--bg-secondary-light) 0%, var(--bg-light) 100%);">
   <div class="container text-center">
-    <h2 class="section-title fw-bold mb-5" data-aos="fade-up">3 Coisas que me movem</h2>
+    <h2 class="fw-bold mb-5" data-aos="fade-up">3 Coisas que me movem</h2>
     <div class="row g-4">
-      <div class="col-md-4" data-aos="zoom-in">
-        <div class="card p-4 border-0 shadow h-100">
-          <h5 class="text-primary">🚀 Inovação com Propósito</h5>
-          <p class="text-muted">Transformar ideias em soluções reais que melhorem vidas e impactem positivamente a sociedade.</p>
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="card h-100 border-0">
+          <div class="card-body p-4">
+            <div class="mb-4">
+              <i class="fa fa-rocket fa-3x text-primary"></i>
+            </div>
+            <h5 class="fw-bold mb-3">Inovação com Propósito</h5>
+            <p class="text-secondary">Transformar ideias em soluções reais que melhorem vidas e impactem positivamente a sociedade.</p>
+          </div>
         </div>
       </div>
-      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
-        <div class="card p-4 border-0 shadow h-100">
-          <h5 class="text-success">💡 Aprendizado Contínuo</h5>
-          <p class="text-muted">Estar em constante evolução, unindo teoria à prática em cada novo desafio técnico ou humano.</p>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card h-100 border-0">
+          <div class="card-body p-4">
+            <div class="mb-4">
+              <i class="fa fa-lightbulb fa-3x text-warning"></i>
+            </div>
+            <h5 class="fw-bold mb-3">Aprendizado Contínuo</h5>
+            <p class="text-secondary">Estar em constante evolução, unindo teoria à prática em cada novo desafio técnico ou humano.</p>
+          </div>
         </div>
       </div>
-      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
-        <div class="card p-4 border-0 shadow h-100">
-          <h5 class="text-danger">❤️ Empatia Tecnológica</h5>
-          <p class="text-muted">Desenvolver com sensibilidade, colocando o ser humano no centro de cada linha de código.</p>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card h-100 border-0">
+          <div class="card-body p-4">
+            <div class="mb-4">
+              <i class="fa fa-heart fa-3x text-danger"></i>
+            </div>
+            <h5 class="fw-bold mb-3">Empatia Tecnológica</h5>
+            <p class="text-secondary">Desenvolver com sensibilidade, colocando o ser humano no centro de cada linha de código.</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="text-center py-4 footer-cnpj border-top">
-  <small class="footer-cnpj-text">CNPJ Kalleby Evangelho Mota: 49.549.704/0001-07</small>
+<section class="text-center py-4 border-top">
+  <small class="text-secondary">CNPJ Kalleby Evangelho Mota: 49.549.704/0001-07</small>
 </section>
 {% endblock %}
